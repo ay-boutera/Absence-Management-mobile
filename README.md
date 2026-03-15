@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# abs
+# Absence-Management Mobile
 
 A new Flutter project.
 
