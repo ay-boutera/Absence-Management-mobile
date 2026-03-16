@@ -16,4 +16,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get logout => 'تسجيل الخروج';
+
+  @override
+  String get errorTitle => 'حدث خطأ';
+
+  @override
+  String get errorMessage =>
+      'حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى لاحقًا.';
+
+  @override
+  String get goBackHome => 'العودة إلى الشاشة الرئيسية';
+
+  @override
+  String get signIn => 'تسجيل الدخول';
+
+  @override
+  String get logInWithGoogle => 'تسجيل الدخول باستخدام جوجل';
+
+  @override
+  String get logIn => 'تسجيل الدخول';
 }

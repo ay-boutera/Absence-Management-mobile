@@ -2,5 +2,11 @@
   "@@locale": "en",
   "appName": "Absence Management",
   "login": "Login",
-  "logout": "Logout"
+  "logout": "Logout",
+  "errorTitle": "An error occurred",
+  "errorMessage": "An error occurred while loading the data. Please try again later.",
+  "goBackHome": "Go back to home",
+  "signIn": "Sign in",
+  "logInWithGoogle": "Log in with Google",
+  "logIn": "Log in"
 }

@@ -16,4 +16,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get errorTitle => 'An error occurred';
+
+  @override
+  String get errorMessage =>
+      'An error occurred while loading the data. Please try again later.';
+
+  @override
+  String get goBackHome => 'Go back to home';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get logInWithGoogle => 'Log in with Google';
+
+  @override
+  String get logIn => 'Log in';
 }

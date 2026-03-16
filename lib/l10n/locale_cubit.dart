@@ -13,7 +13,7 @@ class LocaleCubit extends Cubit<Locale> {
     return Locale(languageCode);
   }
 
-  void changeLocale(Locale locale, String userId, UserType userType) {
+  void changeLocale(Locale locale, String userId, UserRole userType) {
     if (state.languageCode == locale.languageCode) return;
   }
 }

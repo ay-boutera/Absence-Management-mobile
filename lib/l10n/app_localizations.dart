@@ -115,6 +115,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// No description provided for @errorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred'**
+  String get errorTitle;
+
+  /// No description provided for @errorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred while loading the data. Please try again later.'**
+  String get errorMessage;
+
+  /// No description provided for @goBackHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Go back to home'**
+  String get goBackHome;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// No description provided for @logInWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in with Google'**
+  String get logInWithGoogle;
+
+  /// No description provided for @logIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get logIn;
 }
 
 class _AppLocalizationsDelegate

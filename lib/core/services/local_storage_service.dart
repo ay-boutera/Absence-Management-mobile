@@ -29,6 +29,6 @@ class LocalStorageService {
   }
 
   String getLanguage() {
-    return prefs.getString(AppStrings.languageCode) ?? 'fr';
+    return prefs.getString(AppStrings.languageCode) ?? 'en';
   }
 }

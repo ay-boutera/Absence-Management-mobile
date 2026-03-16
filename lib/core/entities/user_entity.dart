@@ -1,12 +1,12 @@
 import 'package:abs/config/constants/enums.dart';
 
-abstract class UserEntity {
+class UserEntity {
   final String id;
   final String email;
   final String firstName;
   final String lastName;
   final String? photoUrl;
-  final UserType role;
+  final UserRole role;
 
   const UserEntity({
     required this.id,
