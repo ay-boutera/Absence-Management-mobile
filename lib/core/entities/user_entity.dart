@@ -1,20 +1,19 @@
-import 'package:equatable/equatable.dart';
+import 'package:abs/config/constants/enums.dart';
 
-abstract class UserEntity extends Equatable {
+abstract class UserEntity {
   final String id;
   final String email;
-  final String? name;
+  final String firstName;
+  final String lastName;
   final String? photoUrl;
-  final String role; // 'teacher' or 'student'
+  final UserType role;
 
   const UserEntity({
     required this.id,
     required this.email,
-    this.name,
+    required this.firstName,
+    required this.lastName,
     this.photoUrl,
     required this.role,
   });
-
-  @override
-  List<Object?> get props => [id, email, name, photoUrl, role];
 }

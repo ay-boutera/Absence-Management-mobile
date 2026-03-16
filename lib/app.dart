@@ -1,5 +1,6 @@
+import 'package:abs/config/router/route_generator.dart.dart';
+import 'package:abs/config/router/app_routes.dart.dart';
 import 'package:flutter/material.dart';
-import 'config/router/app_router.dart';
 import 'config/theme/app_theme.dart';
 import 'l10n/l10n.dart';
 
@@ -8,12 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Absence Management',
-      routerConfig: AppRouter.router,
       theme: AppTheme.lightTheme,
       supportedLocales: AppL10n.supportedLocales,
       debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.login,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
