@@ -16,5 +16,9 @@
   "forgotPassword": "Forgot password?",
   "logIn": "Log in",
   "orLogInWith": "Or log in with",
-  "googleAuth": "Google Auth"
+  "googleAuth": "Google Auth",
+  "home" : "Home",
+  "schedule" : "Schedule",
+  "attendance" : "Attendance",
+  "more" : "More"
 }

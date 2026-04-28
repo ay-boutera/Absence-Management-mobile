@@ -57,4 +57,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get googleAuth => 'Google Auth';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get schedule => 'Schedule';
+
+  @override
+  String get attendance => 'Attendance';
+
+  @override
+  String get more => 'More';
 }

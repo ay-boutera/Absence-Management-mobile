@@ -56,5 +56,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orLogInWith => 'أو تسجيل الدخول باستخدام';
 
   @override
-  String get googleAuth => 'Google Auth';
+  String get googleAuth => 'جوجل';
+
+  @override
+  String get home => 'الرئيسية';
+
+  @override
+  String get schedule => 'الجدول';
+
+  @override
+  String get attendance => 'الحضور';
+
+  @override
+  String get more => 'المزيد';
 }

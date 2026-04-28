@@ -15,5 +15,9 @@
   "rememberMe": "تذكرني",
   "forgotPassword": "نسيت كلمة المرور؟",
   "orLogInWith": "أو تسجيل الدخول باستخدام",
-  "googleAuth": "Google Auth"
+  "googleAuth": "جوجل",
+  "home": "الرئيسية",
+  "schedule": "الجدول",
+  "attendance": "الحضور",
+  "more": "المزيد"
 }
