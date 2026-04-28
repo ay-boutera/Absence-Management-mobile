@@ -35,4 +35,26 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logIn => 'Log in';
+
+  @override
+  String get signInSubtitle =>
+      'Enter your email and password to log in to your account';
+
+  @override
+  String get emailHint => 'Email';
+
+  @override
+  String get passwordHint => 'Password';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get orLogInWith => 'Or log in with';
+
+  @override
+  String get googleAuth => 'Google Auth';
 }

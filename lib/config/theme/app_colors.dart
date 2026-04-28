@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+//primary color = #143888
+
 class AppColors {
   // Brand Colors from Image
   static const Color primary = Color(
-    0xFF001951,
+    0xFF143888,
   ); // Dark Navy (Background/Button)
   static const Color accent = Color(
     0xFF3970EB,

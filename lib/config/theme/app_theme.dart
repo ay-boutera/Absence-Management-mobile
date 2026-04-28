@@ -6,6 +6,7 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'Figtree',
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.backgroundLight,
@@ -35,6 +36,7 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'Figtree',
       brightness: Brightness.dark,
       primaryColor: AppColors
           .accent, // Use the lighter blue for better visibility in dark mode

@@ -35,4 +35,26 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get logIn => 'تسجيل الدخول';
+
+  @override
+  String get signInSubtitle =>
+      'أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول';
+
+  @override
+  String get emailHint => 'البريد الإلكتروني';
+
+  @override
+  String get passwordHint => 'كلمة المرور';
+
+  @override
+  String get rememberMe => 'تذكرني';
+
+  @override
+  String get forgotPassword => 'نسيت كلمة المرور؟';
+
+  @override
+  String get orLogInWith => 'أو تسجيل الدخول باستخدام';
+
+  @override
+  String get googleAuth => 'Google Auth';
 }

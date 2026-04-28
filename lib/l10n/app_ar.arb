@@ -8,5 +8,12 @@
   "goBackHome": "العودة إلى الشاشة الرئيسية",
   "signIn": "تسجيل الدخول",
   "logInWithGoogle": "تسجيل الدخول باستخدام جوجل",
-  "logIn": "تسجيل الدخول"
+  "logIn": "تسجيل الدخول",
+  "signInSubtitle": "أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول",
+  "emailHint": "البريد الإلكتروني",
+  "passwordHint": "كلمة المرور",
+  "rememberMe": "تذكرني",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "orLogInWith": "أو تسجيل الدخول باستخدام",
+  "googleAuth": "Google Auth"
 }

@@ -8,5 +8,13 @@
   "goBackHome": "Go back to home",
   "signIn": "Sign in",
   "logInWithGoogle": "Log in with Google",
-  "logIn": "Log in"
+  "logIn": "Log in",
+  "signInSubtitle": "Enter your email and password to log in to your account",
+  "emailHint": "Email",
+  "passwordHint": "Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password?",
+  "logIn": "Log in",
+  "orLogInWith": "Or log in with",
+  "googleAuth": "Google Auth"
 }

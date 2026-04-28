@@ -151,6 +151,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log in'**
   String get logIn;
+
+  /// No description provided for @signInSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email and password to log in to your account'**
+  String get signInSubtitle;
+
+  /// No description provided for @emailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailHint;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordHint;
+
+  /// No description provided for @rememberMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember me'**
+  String get rememberMe;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @orLogInWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Or log in with'**
+  String get orLogInWith;
+
+  /// No description provided for @googleAuth.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Auth'**
+  String get googleAuth;
 }
 
 class _AppLocalizationsDelegate
