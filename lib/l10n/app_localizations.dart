@@ -217,6 +217,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More'**
   String get more;
+
+  /// No description provided for @myTimetable.
+  ///
+  /// In en, this message translates to:
+  /// **'My Timetable'**
+  String get myTimetable;
+
+  /// No description provided for @checkTimetable.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your weekly timetable'**
+  String get checkTimetable;
+
+  /// No description provided for @absenceWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'You have 2 absences for today.'**
+  String get absenceWarning;
+
+  /// No description provided for @todayClasses.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s classes'**
+  String get todayClasses;
+
+  /// No description provided for @scanQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR code'**
+  String get scanQrCode;
 }
 
 class _AppLocalizationsDelegate

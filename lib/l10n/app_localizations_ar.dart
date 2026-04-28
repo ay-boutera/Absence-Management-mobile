@@ -69,4 +69,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get more => 'المزيد';
+
+  @override
+  String get myTimetable => 'جدولي';
+
+  @override
+  String get checkTimetable => 'تحقق من جدولك الأسبوعي';
+
+  @override
+  String get absenceWarning => 'لديك غيابان لهذا اليوم.';
+
+  @override
+  String get todayClasses => 'حصص اليوم';
+
+  @override
+  String get scanQrCode => 'مسح رمز الاستجابة السريعة';
 }

@@ -20,5 +20,10 @@
   "home" : "Home",
   "schedule" : "Schedule",
   "attendance" : "Attendance",
-  "more" : "More"
+  "more" : "More",
+  "myTimetable" : "My Timetable",
+  "checkTimetable" : "Check your weekly timetable",
+  "absenceWarning" : "You have 2 absences for today.",
+  "todayClasses" : "Today's classes",
+  "scanQrCode": "Scan QR code"
 }

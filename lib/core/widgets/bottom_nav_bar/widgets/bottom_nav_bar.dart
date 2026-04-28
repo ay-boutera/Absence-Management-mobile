@@ -1,6 +1,7 @@
 import 'package:abs/config/constants/app_assets.dart';
 import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/core/widgets/bottom_nav_bar/widgets/nav_icon.dart';
+import 'package:abs/features/home/screens/home_page.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,7 @@ class TestScreen extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (title == 'Worker Profile') {
-            context.read<AuthCubit>().logout();
+            context.read<AuthCubit>().signOut();
           }
         },
         child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
@@ -63,7 +64,7 @@ class _BottomNavBarView extends StatelessWidget {
     final labels = _getLabels(context);
 
     final List<Widget> screens = [
-      TestScreen('title 1'),
+      const HomePage(),
       TestScreen('title 2'),
       TestScreen('title 3'),
       TestScreen('title 4'),

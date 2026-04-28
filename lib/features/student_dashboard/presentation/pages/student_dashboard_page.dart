@@ -11,7 +11,7 @@ class StudentDashboardPage extends StatelessWidget {
       body: Center(
         child: InkWell(
           onTap: () {
-            context.read<AuthCubit>().logout();
+            context.read<AuthCubit>().signOut();
           },
           child: const Text('Student Dashboard'),
         ),

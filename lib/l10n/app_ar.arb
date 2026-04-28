@@ -19,5 +19,10 @@
   "home": "الرئيسية",
   "schedule": "الجدول",
   "attendance": "الحضور",
-  "more": "المزيد"
+  "more": "المزيد",
+  "myTimetable" : "جدولي",
+  "checkTimetable" : "تحقق من جدولك الأسبوعي",
+  "absenceWarning" : "لديك غيابان لهذا اليوم.",
+  "todayClasses" : "حصص اليوم",
+  "scanQrCode": "مسح رمز الاستجابة السريعة"
 }

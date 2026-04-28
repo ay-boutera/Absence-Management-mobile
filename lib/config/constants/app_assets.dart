@@ -8,6 +8,7 @@ class AppAssets {
   static const String loginBackground = '${images}Login background.png';
   static const String splash = '${images}splash.png';
   static const String google = '${images}logo_google.png';
+  static const String profile = '${images}profile.webp';
 
   //svg images paths
   static const String logo = '${icons}logo.svg';
@@ -17,4 +18,5 @@ class AppAssets {
   static const String schedule = '${icons}schedule.svg';
   static const String more = '${icons}more.svg';
   static const String scanner = '${icons}scanner.svg';
+  static const String note = '${icons}note.svg';
 }

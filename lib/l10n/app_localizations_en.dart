@@ -69,4 +69,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get more => 'More';
+
+  @override
+  String get myTimetable => 'My Timetable';
+
+  @override
+  String get checkTimetable => 'Check your weekly timetable';
+
+  @override
+  String get absenceWarning => 'You have 2 absences for today.';
+
+  @override
+  String get todayClasses => 'Today\'s classes';
+
+  @override
+  String get scanQrCode => 'Scan QR code';
 }
