@@ -60,5 +60,14 @@
   "databaseSystems": "تطبيق - قواعد البيانات",
   "machineLearning": "تمرين - تعلم الآلة",
   "computerNetworks": "تطبيق - شبكات الحاسوب",
-  "artificialIntelligence": "تمرين - الذكاء الاصطناعي"
+  "artificialIntelligence": "تمرين - الذكاء الاصطناعي",
+  "absenceDetailsTitle": "تفاصيل الغياب",
+  "module": "المقياس",
+  "dateAndTime": "التاريخ والوقت",
+  "professor": "الأستاذ",
+  "room": "القاعة",
+  "justificationRejected": "تم رفض التبرير",
+  "certificateInvalidMessage": "الشهادة الطبية المقدمة غير صالحة. يرجى تقديم شهادة رسمية من مؤسسة طبية معتمدة.",
+  "uploadNewJustification": "رفع تبرير جديد",
+  "close": "إغلاق"
 }

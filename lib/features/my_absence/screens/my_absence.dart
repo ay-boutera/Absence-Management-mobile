@@ -13,6 +13,7 @@ class MyAbsenceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     // Sample data - replace with your actual data source
     final absences = [
@@ -56,31 +57,28 @@ class MyAbsenceScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          
-          child: Column(
-            children: [
-              const AbsencesHeader(),
-              TotalAbsencesCard(
-                title: l10n.totalAbsences,
-                subtitle: l10n.semester1,
-                percentage: 0.7,
-              ),
-              FilterTabs(
-                labels: [
-                  '${l10n.filterAll} (6)',
-                  l10n.filterPending,
-                  l10n.filterApproved,
-                  l10n.filterRejected,
-                ],
-              ),
-              AbsenceList(absences: absences),
+      backgroundColor: theme.colorScheme.surface,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const AbsencesHeader(),
+            TotalAbsencesCard(
+              title: l10n.totalAbsences,
+              subtitle: l10n.semester1,
+              percentage: 0.7,
+            ),
+            FilterTabs(
+              labels: [
+                '${l10n.filterAll} (6)',
+                l10n.filterPending,
+                l10n.filterApproved,
+                l10n.filterRejected,
+              ],
+            ),
+            AbsenceList(absences: absences),
 
-              SizedBox(height: 64),
-            ],
-          ),
+            SizedBox(height: 64),
+          ],
         ),
       ),
     );

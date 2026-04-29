@@ -457,6 +457,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'TP - Artificial Intelligence'**
   String get artificialIntelligence;
+
+  /// No description provided for @absenceDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Absence Details'**
+  String get absenceDetailsTitle;
+
+  /// No description provided for @module.
+  ///
+  /// In en, this message translates to:
+  /// **'Module'**
+  String get module;
+
+  /// No description provided for @dateAndTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Date & Time'**
+  String get dateAndTime;
+
+  /// No description provided for @professor.
+  ///
+  /// In en, this message translates to:
+  /// **'Professor'**
+  String get professor;
+
+  /// No description provided for @room.
+  ///
+  /// In en, this message translates to:
+  /// **'Salle'**
+  String get room;
+
+  /// No description provided for @justificationRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Justification Rejected'**
+  String get justificationRejected;
+
+  /// No description provided for @certificateInvalidMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The medical certificate provided is not valid. Please submit an official certificate from a recognized medical institution.'**
+  String get certificateInvalidMessage;
+
+  /// No description provided for @uploadNewJustification.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload New Justification'**
+  String get uploadNewJustification;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
 }
 
 class _AppLocalizationsDelegate

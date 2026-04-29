@@ -61,5 +61,14 @@
   "databaseSystems": "TD - Database Systems",
   "machineLearning": "TP - Machine Learning",
   "computerNetworks": "TD - Computer Networks",
-  "artificialIntelligence": "TP - Artificial Intelligence"
+  "artificialIntelligence": "TP - Artificial Intelligence",
+  "absenceDetailsTitle": "Absence Details",
+  "module": "Module",
+  "dateAndTime": "Date & Time",
+  "professor": "Professor",
+  "room": "Salle",
+  "justificationRejected": "Justification Rejected",
+  "certificateInvalidMessage": "The medical certificate provided is not valid. Please submit an official certificate from a recognized medical institution.",
+  "uploadNewJustification": "Upload New Justification",
+  "close": "Close"
 }

@@ -200,4 +200,32 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get artificialIntelligence => 'تمرين - الذكاء الاصطناعي';
+
+  @override
+  String get absenceDetailsTitle => 'تفاصيل الغياب';
+
+  @override
+  String get module => 'المقياس';
+
+  @override
+  String get dateAndTime => 'التاريخ والوقت';
+
+  @override
+  String get professor => 'الأستاذ';
+
+  @override
+  String get room => 'القاعة';
+
+  @override
+  String get justificationRejected => 'تم رفض التبرير';
+
+  @override
+  String get certificateInvalidMessage =>
+      'الشهادة الطبية المقدمة غير صالحة. يرجى تقديم شهادة رسمية من مؤسسة طبية معتمدة.';
+
+  @override
+  String get uploadNewJustification => 'رفع تبرير جديد';
+
+  @override
+  String get close => 'إغلاق';
 }

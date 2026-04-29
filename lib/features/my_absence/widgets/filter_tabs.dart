@@ -37,7 +37,7 @@ class _FilterTabsState extends State<FilterTabs> {
                   color: selectedIndex == index
                       ? theme.colorScheme.primary
                       : Colors.transparent,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(120),
                 ),
                 child: Text(
                   widget.labels[index],

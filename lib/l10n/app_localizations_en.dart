@@ -199,4 +199,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get artificialIntelligence => 'TP - Artificial Intelligence';
+
+  @override
+  String get absenceDetailsTitle => 'Absence Details';
+
+  @override
+  String get module => 'Module';
+
+  @override
+  String get dateAndTime => 'Date & Time';
+
+  @override
+  String get professor => 'Professor';
+
+  @override
+  String get room => 'Salle';
+
+  @override
+  String get justificationRejected => 'Justification Rejected';
+
+  @override
+  String get certificateInvalidMessage =>
+      'The medical certificate provided is not valid. Please submit an official certificate from a recognized medical institution.';
+
+  @override
+  String get uploadNewJustification => 'Upload New Justification';
+
+  @override
+  String get close => 'Close';
 }
