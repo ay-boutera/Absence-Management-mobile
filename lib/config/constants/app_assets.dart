@@ -22,4 +22,5 @@ class AppAssets {
   static const String clock = '${icons}clock.svg';
   static const String empty = '${icons}empty.svg';
   static const String upload = '${icons}upload.svg';
+  static const String done = '${icons}Done.svg';
 }

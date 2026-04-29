@@ -1,3 +1,4 @@
+import 'package:abs/config/router/app_routes.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,8 @@ class SubmitButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          // Handle submission
+          // Handle submission\
+          Navigator.pushNamed(context, AppRoutes.succes);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: theme.colorScheme.primary,

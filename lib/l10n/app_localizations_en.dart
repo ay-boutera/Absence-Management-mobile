@@ -265,4 +265,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get submitJustification => 'Submit Justification';
+
+  @override
+  String get examScheduleTitle => 'Exam schedule';
+
+  @override
+  String get examScheduleSubtitle => 'Check your rattrapage exams schedule';
+
+  @override
+  String get noExamsTitle => 'There is no exams for the moment !';
+
+  @override
+  String get examsStartDate => 'Exams start 7 January 2026';
 }

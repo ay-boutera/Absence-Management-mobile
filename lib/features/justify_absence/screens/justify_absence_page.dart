@@ -15,9 +15,19 @@ class JustifyAbsencePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PageHeader(
-              title: l10n.justifyAbsenceTitle,
-              subtitle: l10n.justifyAbsenceSubtitle,
+            Container(
+              padding: EdgeInsets.fromLTRB(16, 128, 16, 8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
+                ),
+              ),
+              child: PageHeader(
+                title: l10n.justifyAbsenceTitle,
+                subtitle: l10n.justifyAbsenceSubtitle,
+              ),
             ),
 
             JustificationFormCard(),

@@ -36,9 +36,7 @@ class DocumentUploader extends StatelessWidget {
             ),
             child: Column(
               children: [
-                // TODO: Replace with your SVG asset
-                // Example: SvgPicture.asset('assets/icons/upload.svg', width: 32, height: 32)
-                SvgPicture.asset(AppAssets.upload, width: 32, height: 32),
+                  SvgPicture.asset(AppAssets.upload, width: 32, height: 32),
                 const SizedBox(height: 12),
                 Text(
                   l10n.clickToUpload,

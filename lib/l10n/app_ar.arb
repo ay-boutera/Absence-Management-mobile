@@ -81,5 +81,9 @@
   "fileFormatHint": "يجب أن يكون التنسيق .pdf أو .jpeg أو .png وبحجم أقل من 5 ميجابايت",
   "additionalCommentsLabel": "تعليقات إضافية",
   "commentsPlaceholder": "قدم تفاصيل بخصوص غيابك...",
-  "submitJustification": "إرسال التبرير"
+  "submitJustification": "إرسال التبرير",
+  "examScheduleTitle": "جدول الامتحانات",
+  "examScheduleSubtitle": "تحقق من جدول امتحانات الاستدراك الخاصة بك",
+  "noExamsTitle": "لا توجد امتحانات في الوقت الحالي!",
+  "examsStartDate": "تبدأ الامتحانات في 7 جانفي 2026"
 }

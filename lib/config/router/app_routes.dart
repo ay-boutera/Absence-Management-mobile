@@ -9,4 +9,5 @@ class AppRoutes {
   static const String myAbsence = '/my-absence';
   static const String absenceDetails = '/absence-details';
   static const String justifyAbsence = '/justify-absence';
+  static const String succes = '/succes';
 }

@@ -82,5 +82,9 @@
   "fileFormatHint": "Format should be in .pdf .jpeg .png less than 5MB",
   "additionalCommentsLabel": "Additional Comments",
   "commentsPlaceholder": "Provide details regarding your absence...",
-  "submitJustification": "Submit Justification"
+  "submitJustification": "Submit Justification",
+    "examScheduleTitle": "Exam schedule",
+  "examScheduleSubtitle": "Check your rattrapage exams schedule",
+  "noExamsTitle": "There is no exams for the moment !",
+  "examsStartDate": "Exams start 7 January 2026"
 }

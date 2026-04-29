@@ -583,6 +583,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Submit Justification'**
   String get submitJustification;
+
+  /// No description provided for @examScheduleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam schedule'**
+  String get examScheduleTitle;
+
+  /// No description provided for @examScheduleSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your rattrapage exams schedule'**
+  String get examScheduleSubtitle;
+
+  /// No description provided for @noExamsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no exams for the moment !'**
+  String get noExamsTitle;
+
+  /// No description provided for @examsStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Exams start 7 January 2026'**
+  String get examsStartDate;
 }
 
 class _AppLocalizationsDelegate

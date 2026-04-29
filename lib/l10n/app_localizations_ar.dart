@@ -266,4 +266,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get submitJustification => 'إرسال التبرير';
+
+  @override
+  String get examScheduleTitle => 'جدول الامتحانات';
+
+  @override
+  String get examScheduleSubtitle =>
+      'تحقق من جدول امتحانات الاستدراك الخاصة بك';
+
+  @override
+  String get noExamsTitle => 'لا توجد امتحانات في الوقت الحالي!';
+
+  @override
+  String get examsStartDate => 'تبدأ الامتحانات في 7 جانفي 2026';
 }
