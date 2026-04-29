@@ -93,9 +93,6 @@ class _ManualAttendanceScreenState extends State<ManualAttendanceScreen> {
                   CheckAbsencesCard(
                     title: l10n.checkAbsencesTitle,
                     actionLabel: l10n.checkAbsencesAction,
-                    onTap: () {
-                      // TODO: navigate to absences detail
-                    },
                   ),
                   const SizedBox(height: 8),
                   OverallScoreCard(
@@ -115,14 +112,11 @@ class _ManualAttendanceScreenState extends State<ManualAttendanceScreen> {
                   ...subjects.map(
                     (subject) => SubjectCard(
                       title: subject.title,
-                      subtitle:
-                          subject.subtitle ??
-                          l10n.sessionCount(subject.sessions),
+                      subtitle: subject.getFactor(),
                       percentage: subject.percentage,
-                      color: Colors.blue,
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 128),
                 ],
               ),
             ),

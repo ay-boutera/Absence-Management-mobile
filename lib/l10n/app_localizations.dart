@@ -349,6 +349,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =0{No sessions} =1{1 session} other{{count} sessions}}'**
   String sessionCount(num count);
+
+  /// No description provided for @myAbsencesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My absences'**
+  String get myAbsencesTitle;
+
+  /// No description provided for @trackManageAbsences.
+  ///
+  /// In en, this message translates to:
+  /// **'Track and manage your absences'**
+  String get trackManageAbsences;
+
+  /// No description provided for @totalAbsences.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Absences'**
+  String get totalAbsences;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @filterPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get filterPending;
+
+  /// No description provided for @filterApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved'**
+  String get filterApproved;
+
+  /// No description provided for @filterRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get filterRejected;
+
+  /// No description provided for @statusUnjustified.
+  ///
+  /// In en, this message translates to:
+  /// **'Unjustified'**
+  String get statusUnjustified;
+
+  /// No description provided for @statusRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get statusRejected;
+
+  /// No description provided for @statusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get statusPending;
+
+  /// No description provided for @statusJustified.
+  ///
+  /// In en, this message translates to:
+  /// **'Justified'**
+  String get statusJustified;
+
+  /// No description provided for @justifyNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Justify now'**
+  String get justifyNow;
+
+  /// No description provided for @seeReason.
+  ///
+  /// In en, this message translates to:
+  /// **'See Reason'**
+  String get seeReason;
+
+  /// No description provided for @review.
+  ///
+  /// In en, this message translates to:
+  /// **'Review'**
+  String get review;
+
+  /// No description provided for @databaseSystems.
+  ///
+  /// In en, this message translates to:
+  /// **'TD - Database Systems'**
+  String get databaseSystems;
+
+  /// No description provided for @machineLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'TP - Machine Learning'**
+  String get machineLearning;
+
+  /// No description provided for @computerNetworks.
+  ///
+  /// In en, this message translates to:
+  /// **'TD - Computer Networks'**
+  String get computerNetworks;
+
+  /// No description provided for @artificialIntelligence.
+  ///
+  /// In en, this message translates to:
+  /// **'TP - Artificial Intelligence'**
+  String get artificialIntelligence;
 }
 
 class _AppLocalizationsDelegate

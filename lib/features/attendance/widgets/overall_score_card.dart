@@ -56,8 +56,7 @@ class OverallScoreCard extends StatelessWidget {
           Text(
             '$percentage%',
             style: theme.textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.w800,
-              color: theme.colorScheme.onSurface,
+              color: theme.colorScheme.primary,
             ),
           ),
         ],

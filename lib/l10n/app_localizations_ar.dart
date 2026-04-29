@@ -146,4 +146,58 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get myAbsencesTitle => 'غياباتي';
+
+  @override
+  String get trackManageAbsences => 'تتبع وإدارة غياباتك';
+
+  @override
+  String get totalAbsences => 'إجمالي الغيابات';
+
+  @override
+  String get filterAll => 'الكل';
+
+  @override
+  String get filterPending => 'قيد الانتظار';
+
+  @override
+  String get filterApproved => 'مقبول';
+
+  @override
+  String get filterRejected => 'مرفوض';
+
+  @override
+  String get statusUnjustified => 'غير مبرر';
+
+  @override
+  String get statusRejected => 'مرفوض';
+
+  @override
+  String get statusPending => 'قيد الانتظار';
+
+  @override
+  String get statusJustified => 'مبرر';
+
+  @override
+  String get justifyNow => 'برر الآن';
+
+  @override
+  String get seeReason => 'انظر السبب';
+
+  @override
+  String get review => 'مراجعة';
+
+  @override
+  String get databaseSystems => 'تطبيق - قواعد البيانات';
+
+  @override
+  String get machineLearning => 'تمرين - تعلم الآلة';
+
+  @override
+  String get computerNetworks => 'تطبيق - شبكات الحاسوب';
+
+  @override
+  String get artificialIntelligence => 'تمرين - الذكاء الاصطناعي';
 }

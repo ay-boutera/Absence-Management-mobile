@@ -7,13 +7,11 @@ class SubjectCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.percentage,
-    required this.color,
   });
 
   final String title;
   final String subtitle;
   final int percentage;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {

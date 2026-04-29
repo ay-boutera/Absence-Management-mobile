@@ -11,4 +11,10 @@ class SubjectAttendanceEntity {
   final int percentage;
 
   final String? subtitle;
+
+  String getFactor() {
+    final double numberOfPresentSessions = (sessions * percentage) / 100;
+
+    return '${numberOfPresentSessions.round()} / $sessions';
+  }
 }

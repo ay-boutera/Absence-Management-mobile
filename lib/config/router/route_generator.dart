@@ -1,5 +1,6 @@
 import 'package:abs/features/auth/pages/login_page.dart';
 import 'package:abs/features/auth/pages/splash_screen.dart';
+import 'package:abs/features/my_absence/screens/my_absence.dart';
 import 'package:abs/features/student_dashboard/presentation/pages/student_dashboard_page.dart';
 import 'package:abs/shared/screens/error_screen.dart';
 import 'package:abs/shared/screens/loading_screen.dart';
@@ -23,6 +24,9 @@ class RouteGenerator {
 
       case AppRoutes.error:
         return MaterialPageRoute(builder: (_) => ErrorScreen());
+
+      case AppRoutes.myAbsence:
+        return MaterialPageRoute(builder: (_) => const MyAbsenceScreen());
 
       default:
         return MaterialPageRoute(builder: (_) => const SplashScreen());

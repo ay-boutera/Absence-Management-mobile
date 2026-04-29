@@ -1,3 +1,4 @@
+import 'package:abs/config/router/app_routes.dart';
 import 'package:abs/features/attendance/widgets/clock_illustration.dart';
 import 'package:flutter/material.dart';
 
@@ -6,12 +7,10 @@ class CheckAbsencesCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.actionLabel,
-    required this.onTap,
   });
 
   final String title;
   final String actionLabel;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +45,9 @@ class CheckAbsencesCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 GestureDetector(
-                  onTap: onTap,
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.myAbsence);
+                  },
                   child: Text(
                     actionLabel,
                     style: theme.textTheme.bodyMedium?.copyWith(

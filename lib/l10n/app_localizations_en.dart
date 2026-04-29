@@ -145,4 +145,58 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get myAbsencesTitle => 'My absences';
+
+  @override
+  String get trackManageAbsences => 'Track and manage your absences';
+
+  @override
+  String get totalAbsences => 'Total Absences';
+
+  @override
+  String get filterAll => 'All';
+
+  @override
+  String get filterPending => 'Pending';
+
+  @override
+  String get filterApproved => 'Approved';
+
+  @override
+  String get filterRejected => 'Rejected';
+
+  @override
+  String get statusUnjustified => 'Unjustified';
+
+  @override
+  String get statusRejected => 'Rejected';
+
+  @override
+  String get statusPending => 'Pending';
+
+  @override
+  String get statusJustified => 'Justified';
+
+  @override
+  String get justifyNow => 'Justify now';
+
+  @override
+  String get seeReason => 'See Reason';
+
+  @override
+  String get review => 'Review';
+
+  @override
+  String get databaseSystems => 'TD - Database Systems';
+
+  @override
+  String get machineLearning => 'TP - Machine Learning';
+
+  @override
+  String get computerNetworks => 'TD - Computer Networks';
+
+  @override
+  String get artificialIntelligence => 'TP - Artificial Intelligence';
 }
