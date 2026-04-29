@@ -1,6 +1,7 @@
 import 'package:abs/features/home/widgets/bottom_nav.dart';
 import 'package:abs/features/home/widgets/class_card.dart';
 import 'package:abs/features/home/widgets/date_selector.dart';
+import 'package:abs/features/home/widgets/empty_class_card.dart';
 import 'package:abs/features/home/widgets/header.dart';
 import 'package:abs/features/home/widgets/timetable_card.dart';
 import 'package:abs/l10n/app_localizations.dart';
@@ -44,6 +45,8 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           children: [
             const Header(),
+            Divider(color: theme.colorScheme.outline.withValues(alpha: 0.1)),
+
             const SizedBox(height: 16),
 
             const DateSelector(),
@@ -57,27 +60,31 @@ class HomePage extends StatelessWidget {
               children: [
                 Text(l10n.todayClasses, style: theme.textTheme.titleLarge),
                 const SizedBox(width: 8),
-                _badge(classesList.length.toString()),
+                _badge(classesList.length),
               ],
             ),
 
             const SizedBox(height: 12),
 
-            ...classesList,
+            ...(classesList.isEmpty ? [EmptyClassCard()] : classesList),
+
+            SizedBox(height: 64),
           ],
         ),
       ),
     );
   }
 
-  Widget _badge(String text) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.blue.shade100,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text(text),
-    );
+  Widget _badge(int count) {
+    return count == 0
+        ? SizedBox.shrink()
+        : Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: Colors.blue.shade100,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(count.toString()),
+          );
   }
 }

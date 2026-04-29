@@ -19,4 +19,6 @@ class AppAssets {
   static const String more = '${icons}more.svg';
   static const String scanner = '${icons}scanner.svg';
   static const String note = '${icons}note.svg';
+  static const String empty = '${icons}empty.svg';
+  
 }

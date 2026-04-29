@@ -24,5 +24,7 @@
   "checkTimetable" : "تحقق من جدولك الأسبوعي",
   "absenceWarning" : "لديك غيابان لهذا اليوم.",
   "todayClasses" : "حصص اليوم",
-  "scanQrCode": "مسح رمز الاستجابة السريعة"
+  "scanQrCode": "مسح رمز الاستجابة السريعة",
+  "noClassesAvailable" : "لا يوجد حصص اليوم",
+  "noClassesAvailableDescreption" : "يبدو أنه ليس لديك أي دروس مجدولة في الوقت الحالي. سيتم تحديث هذه المساحة عند جدولة دروس جديدة!"
 }

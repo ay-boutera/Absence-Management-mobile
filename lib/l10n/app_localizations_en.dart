@@ -84,4 +84,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get scanQrCode => 'Scan QR code';
+
+  @override
+  String get noClassesAvailable => 'No Classes Available';
+
+  @override
+  String get noClassesAvailableDescreption =>
+      'It looks like you don’t have any classes scheduled at the moment. This space will be updated as new classes are scheduled!';
 }

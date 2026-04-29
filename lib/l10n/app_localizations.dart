@@ -247,6 +247,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Scan QR code'**
   String get scanQrCode;
+
+  /// No description provided for @noClassesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No Classes Available'**
+  String get noClassesAvailable;
+
+  /// No description provided for @noClassesAvailableDescreption.
+  ///
+  /// In en, this message translates to:
+  /// **'It looks like you don’t have any classes scheduled at the moment. This space will be updated as new classes are scheduled!'**
+  String get noClassesAvailableDescreption;
 }
 
 class _AppLocalizationsDelegate

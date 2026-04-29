@@ -25,5 +25,7 @@
   "checkTimetable" : "Check your weekly timetable",
   "absenceWarning" : "You have 2 absences for today.",
   "todayClasses" : "Today's classes",
-  "scanQrCode": "Scan QR code"
+  "scanQrCode": "Scan QR code",
+  "noClassesAvailable": "No Classes Available",
+  "noClassesAvailableDescreption" : "It looks like you don’t have any classes scheduled at the moment. This space will be updated as new classes are scheduled!"
 }

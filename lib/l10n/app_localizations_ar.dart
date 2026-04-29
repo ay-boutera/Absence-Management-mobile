@@ -84,4 +84,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get scanQrCode => 'مسح رمز الاستجابة السريعة';
+
+  @override
+  String get noClassesAvailable => 'لا يوجد حصص اليوم';
+
+  @override
+  String get noClassesAvailableDescreption =>
+      'يبدو أنه ليس لديك أي دروس مجدولة في الوقت الحالي. سيتم تحديث هذه المساحة عند جدولة دروس جديدة!';
 }
