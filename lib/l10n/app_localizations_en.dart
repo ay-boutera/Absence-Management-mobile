@@ -227,4 +227,42 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get justifyAbsenceTitle => 'Justify Absence';
+
+  @override
+  String get justifyAbsenceSubtitle =>
+      'Submit medical certificates or administrative proof.';
+
+  @override
+  String get missedSessionsLabel => 'Missed Session(s)';
+
+  @override
+  String get selectPlaceholder => 'select';
+
+  @override
+  String get reasonLabel => 'Reason';
+
+  @override
+  String get sickOption => 'Sick';
+
+  @override
+  String get evidenceDocumentLabel => 'Evidence Document';
+
+  @override
+  String get clickToUpload => 'Click to upload file';
+
+  @override
+  String get fileFormatHint =>
+      'Format should be in .pdf .jpeg .png less than 5MB';
+
+  @override
+  String get additionalCommentsLabel => 'Additional Comments';
+
+  @override
+  String get commentsPlaceholder => 'Provide details regarding your absence...';
+
+  @override
+  String get submitJustification => 'Submit Justification';
 }

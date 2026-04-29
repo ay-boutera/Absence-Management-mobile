@@ -228,4 +228,42 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get close => 'إغلاق';
+
+  @override
+  String get justifyAbsenceTitle => 'تبرير الغياب';
+
+  @override
+  String get justifyAbsenceSubtitle =>
+      'يرجى تقديم الشهادات الطبية أو الإثباتات الإدارية.';
+
+  @override
+  String get missedSessionsLabel => 'الحصة (الحصص) المتغيب عنها';
+
+  @override
+  String get selectPlaceholder => 'اختر';
+
+  @override
+  String get reasonLabel => 'السبب';
+
+  @override
+  String get sickOption => 'مرض';
+
+  @override
+  String get evidenceDocumentLabel => 'وثيقة الإثبات';
+
+  @override
+  String get clickToUpload => 'اضغط لرفع الملف';
+
+  @override
+  String get fileFormatHint =>
+      'يجب أن يكون التنسيق .pdf أو .jpeg أو .png وبحجم أقل من 5 ميجابايت';
+
+  @override
+  String get additionalCommentsLabel => 'تعليقات إضافية';
+
+  @override
+  String get commentsPlaceholder => 'قدم تفاصيل بخصوص غيابك...';
+
+  @override
+  String get submitJustification => 'إرسال التبرير';
 }

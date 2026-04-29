@@ -14,30 +14,28 @@ class AbsenceDetailsPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: SafeArea(
-        child: Column(
-          children: [
-            PageHeader(
-              title: l10n.absenceDetailsTitle,
-              subtitle: l10n.trackManageAbsences,
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    SizedBox(height: 24),
-                    AbsenceInfoCard(),
-                    SizedBox(height: 24),
-                    RejectionAlertCard(),
-                    SizedBox(height: 24),
-                    UploadJustificationButton(),
-                    SizedBox(height: 62),
-                  ],
-                ),
+      body: Column(
+        children: [
+          PageHeader(
+            title: l10n.absenceDetailsTitle,
+            subtitle: l10n.trackManageAbsences,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: const [
+                  SizedBox(height: 24),
+                  AbsenceInfoCard(),
+                  SizedBox(height: 24),
+                  RejectionAlertCard(),
+                  SizedBox(height: 24),
+                  UploadJustificationButton(),
+                  SizedBox(height: 62),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -12,7 +12,7 @@ class PageHeader extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(24, 40, 24, 30),
+      padding: const EdgeInsets.fromLTRB(24, 72, 24, 30),
       decoration: BoxDecoration(
         color: theme.colorScheme.primary,
         borderRadius: const BorderRadius.only(

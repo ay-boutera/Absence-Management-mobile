@@ -69,5 +69,17 @@
   "justificationRejected": "تم رفض التبرير",
   "certificateInvalidMessage": "الشهادة الطبية المقدمة غير صالحة. يرجى تقديم شهادة رسمية من مؤسسة طبية معتمدة.",
   "uploadNewJustification": "رفع تبرير جديد",
-  "close": "إغلاق"
+  "close": "إغلاق",
+  "justifyAbsenceTitle": "تبرير الغياب",
+  "justifyAbsenceSubtitle": "يرجى تقديم الشهادات الطبية أو الإثباتات الإدارية.",
+  "missedSessionsLabel": "الحصة (الحصص) المتغيب عنها",
+  "selectPlaceholder": "اختر",
+  "reasonLabel": "السبب",
+  "sickOption": "مرض",
+  "evidenceDocumentLabel": "وثيقة الإثبات",
+  "clickToUpload": "اضغط لرفع الملف",
+  "fileFormatHint": "يجب أن يكون التنسيق .pdf أو .jpeg أو .png وبحجم أقل من 5 ميجابايت",
+  "additionalCommentsLabel": "تعليقات إضافية",
+  "commentsPlaceholder": "قدم تفاصيل بخصوص غيابك...",
+  "submitJustification": "إرسال التبرير"
 }

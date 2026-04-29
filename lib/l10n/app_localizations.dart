@@ -511,6 +511,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// No description provided for @justifyAbsenceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Justify Absence'**
+  String get justifyAbsenceTitle;
+
+  /// No description provided for @justifyAbsenceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit medical certificates or administrative proof.'**
+  String get justifyAbsenceSubtitle;
+
+  /// No description provided for @missedSessionsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed Session(s)'**
+  String get missedSessionsLabel;
+
+  /// No description provided for @selectPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'select'**
+  String get selectPlaceholder;
+
+  /// No description provided for @reasonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reasonLabel;
+
+  /// No description provided for @sickOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Sick'**
+  String get sickOption;
+
+  /// No description provided for @evidenceDocumentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Evidence Document'**
+  String get evidenceDocumentLabel;
+
+  /// No description provided for @clickToUpload.
+  ///
+  /// In en, this message translates to:
+  /// **'Click to upload file'**
+  String get clickToUpload;
+
+  /// No description provided for @fileFormatHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Format should be in .pdf .jpeg .png less than 5MB'**
+  String get fileFormatHint;
+
+  /// No description provided for @additionalCommentsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional Comments'**
+  String get additionalCommentsLabel;
+
+  /// No description provided for @commentsPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide details regarding your absence...'**
+  String get commentsPlaceholder;
+
+  /// No description provided for @submitJustification.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Justification'**
+  String get submitJustification;
 }
 
 class _AppLocalizationsDelegate

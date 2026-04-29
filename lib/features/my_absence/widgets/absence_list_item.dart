@@ -17,7 +17,13 @@ class AbsenceListItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.absenceDetails);
+        if (absence.status == AbsenceStatus.rejected) {
+          Navigator.pushNamed(context, AppRoutes.absenceDetails);
+        }
+
+        if (absence.status == AbsenceStatus.unjustified) {
+          Navigator.pushNamed(context, AppRoutes.justifyAbsence);
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(16),

@@ -70,5 +70,17 @@
   "justificationRejected": "Justification Rejected",
   "certificateInvalidMessage": "The medical certificate provided is not valid. Please submit an official certificate from a recognized medical institution.",
   "uploadNewJustification": "Upload New Justification",
-  "close": "Close"
+  "close": "Close",
+  "justifyAbsenceTitle": "Justify Absence",
+  "justifyAbsenceSubtitle": "Submit medical certificates or administrative proof.",
+  "missedSessionsLabel": "Missed Session(s)",
+  "selectPlaceholder": "select",
+  "reasonLabel": "Reason",
+  "sickOption": "Sick",
+  "evidenceDocumentLabel": "Evidence Document",
+  "clickToUpload": "Click to upload file",
+  "fileFormatHint": "Format should be in .pdf .jpeg .png less than 5MB",
+  "additionalCommentsLabel": "Additional Comments",
+  "commentsPlaceholder": "Provide details regarding your absence...",
+  "submitJustification": "Submit Justification"
 }
