@@ -1,6 +1,7 @@
 import 'package:abs/config/constants/app_assets.dart';
 import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/core/widgets/bottom_nav_bar/widgets/nav_icon.dart';
+import 'package:abs/features/attendance/screens/manual_attendance_screen.dart';
 import 'package:abs/features/home/screens/home_page.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _BottomNavBarView extends StatelessWidget {
       const HomePage(),
       TestScreen('title 2'),
       TestScreen('title 3'),
-      TestScreen('title 4'),
+      const ManualAttendanceScreen(),
       TestScreen('title 5'),
     ];
 

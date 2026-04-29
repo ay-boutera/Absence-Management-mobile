@@ -56,6 +56,7 @@ class _DayItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final dayNumber = DateFormat('dd').format(date);
     final weekDay = DateFormat('EEE').format(date);
+    final theme = Theme.of(context).colorScheme;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 250),
@@ -70,7 +71,7 @@ class _DayItem extends StatelessWidget {
             dayNumber,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : Colors.black,
+              color: isSelected ? Colors.white : theme.onSurface,
             ),
           ),
           const SizedBox(height: 4),

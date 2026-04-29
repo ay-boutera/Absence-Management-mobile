@@ -91,4 +91,58 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get noClassesAvailableDescreption =>
       'It looks like you don’t have any classes scheduled at the moment. This space will be updated as new classes are scheduled!';
+
+  @override
+  String get subjectLow => 'LOW';
+
+  @override
+  String get subjectAcsi => 'ACSI';
+
+  @override
+  String get subjectBdd => 'BDD';
+
+  @override
+  String get subjectTdd => 'TDD';
+
+  @override
+  String get subjectCiCd => 'CI/CD';
+
+  @override
+  String get priorityHigh => 'High Priority';
+
+  @override
+  String get attendanceTitle => 'Attendance';
+
+  @override
+  String get attendanceSubtitle => 'Check your progress';
+
+  @override
+  String get checkAbsencesTitle => 'Check your absences';
+
+  @override
+  String get checkAbsencesAction => 'View Details';
+
+  @override
+  String get overallScoreLabel => 'Overall Score';
+
+  @override
+  String get overallScoreGroup => 'Semester Average';
+
+  @override
+  String get semester1 => 'Semester 1';
+
+  @override
+  String get semester2 => 'Semester 2';
+
+  @override
+  String sessionCount(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count sessions',
+      one: '1 session',
+      zero: 'No sessions',
+    );
+    return '$_temp0';
+  }
 }

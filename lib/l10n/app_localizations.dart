@@ -259,6 +259,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'It looks like you don’t have any classes scheduled at the moment. This space will be updated as new classes are scheduled!'**
   String get noClassesAvailableDescreption;
+
+  /// No description provided for @subjectLow.
+  ///
+  /// In en, this message translates to:
+  /// **'LOW'**
+  String get subjectLow;
+
+  /// No description provided for @subjectAcsi.
+  ///
+  /// In en, this message translates to:
+  /// **'ACSI'**
+  String get subjectAcsi;
+
+  /// No description provided for @subjectBdd.
+  ///
+  /// In en, this message translates to:
+  /// **'BDD'**
+  String get subjectBdd;
+
+  /// No description provided for @subjectTdd.
+  ///
+  /// In en, this message translates to:
+  /// **'TDD'**
+  String get subjectTdd;
+
+  /// No description provided for @subjectCiCd.
+  ///
+  /// In en, this message translates to:
+  /// **'CI/CD'**
+  String get subjectCiCd;
+
+  /// No description provided for @priorityHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High Priority'**
+  String get priorityHigh;
+
+  /// No description provided for @attendanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Attendance'**
+  String get attendanceTitle;
+
+  /// No description provided for @attendanceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your progress'**
+  String get attendanceSubtitle;
+
+  /// No description provided for @checkAbsencesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your absences'**
+  String get checkAbsencesTitle;
+
+  /// No description provided for @checkAbsencesAction.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get checkAbsencesAction;
+
+  /// No description provided for @overallScoreLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall Score'**
+  String get overallScoreLabel;
+
+  /// No description provided for @overallScoreGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Semester Average'**
+  String get overallScoreGroup;
+
+  /// No description provided for @semester1.
+  ///
+  /// In en, this message translates to:
+  /// **'Semester 1'**
+  String get semester1;
+
+  /// No description provided for @semester2.
+  ///
+  /// In en, this message translates to:
+  /// **'Semester 2'**
+  String get semester2;
+
+  /// No description provided for @sessionCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No sessions} =1{1 session} other{{count} sessions}}'**
+  String sessionCount(num count);
 }
 
 class _AppLocalizationsDelegate

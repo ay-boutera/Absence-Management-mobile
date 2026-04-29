@@ -26,5 +26,20 @@
   "todayClasses" : "حصص اليوم",
   "scanQrCode": "مسح رمز الاستجابة السريعة",
   "noClassesAvailable" : "لا يوجد حصص اليوم",
-  "noClassesAvailableDescreption" : "يبدو أنه ليس لديك أي دروس مجدولة في الوقت الحالي. سيتم تحديث هذه المساحة عند جدولة دروس جديدة!"
+  "noClassesAvailableDescreption" : "يبدو أنه ليس لديك أي دروس مجدولة في الوقت الحالي. سيتم تحديث هذه المساحة عند جدولة دروس جديدة!",
+  "subjectLow": "LOW",
+  "subjectAcsi": "ACSI",
+  "subjectBdd": "BDD",
+  "subjectTdd": "TDD",
+  "subjectCiCd": "CI/CD",
+  "priorityHigh": "أولوية قصوى",
+  "attendanceTitle": "الحضور",
+  "attendanceSubtitle": "تحقق من تقدمك",
+  "checkAbsencesTitle": "تحقق من الغيابات",
+  "checkAbsencesAction": "عرض التفاصيل",
+  "overallScoreLabel": "النتيجة الإجمالية",
+  "overallScoreGroup": "متوسط الفصل الدراسي",
+  "semester1": "الفصل الأول",
+  "semester2": "الفصل الثاني",
+  "sessionCount": "{count, plural, =0{لا توجد حصص} =1{حصة واحدة} =2{حصتان} other{{count} حصص}}"
 }

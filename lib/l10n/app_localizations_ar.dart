@@ -91,4 +91,59 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get noClassesAvailableDescreption =>
       'يبدو أنه ليس لديك أي دروس مجدولة في الوقت الحالي. سيتم تحديث هذه المساحة عند جدولة دروس جديدة!';
+
+  @override
+  String get subjectLow => 'LOW';
+
+  @override
+  String get subjectAcsi => 'ACSI';
+
+  @override
+  String get subjectBdd => 'BDD';
+
+  @override
+  String get subjectTdd => 'TDD';
+
+  @override
+  String get subjectCiCd => 'CI/CD';
+
+  @override
+  String get priorityHigh => 'أولوية قصوى';
+
+  @override
+  String get attendanceTitle => 'الحضور';
+
+  @override
+  String get attendanceSubtitle => 'تحقق من تقدمك';
+
+  @override
+  String get checkAbsencesTitle => 'تحقق من الغيابات';
+
+  @override
+  String get checkAbsencesAction => 'عرض التفاصيل';
+
+  @override
+  String get overallScoreLabel => 'النتيجة الإجمالية';
+
+  @override
+  String get overallScoreGroup => 'متوسط الفصل الدراسي';
+
+  @override
+  String get semester1 => 'الفصل الأول';
+
+  @override
+  String get semester2 => 'الفصل الثاني';
+
+  @override
+  String sessionCount(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حصص',
+      two: 'حصتان',
+      one: 'حصة واحدة',
+      zero: 'لا توجد حصص',
+    );
+    return '$_temp0';
+  }
 }

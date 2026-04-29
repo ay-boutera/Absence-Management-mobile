@@ -1,0 +1,14 @@
+class SubjectAttendanceEntity {
+  const SubjectAttendanceEntity({
+    required this.title,
+    required this.sessions,
+    required this.percentage,
+    this.subtitle,
+  });
+
+  final String title;
+  final int sessions;
+  final int percentage;
+
+  final String? subtitle;
+}
