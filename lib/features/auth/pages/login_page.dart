@@ -32,17 +32,10 @@ class _LoginPageState extends State<LoginPage> {
     if (_isSigningIn) return;
     setState(() => _isSigningIn = true);
     try {
-      await context.read<AuthCubit>().login();
-    } finally {
-      if (mounted) setState(() => _isSigningIn = false);
-    }
-  }
-
-  Future<void> _handleGoogleLogin() async {
-    if (_isSigningIn) return;
-    setState(() => _isSigningIn = true);
-    try {
-      await context.read<AuthCubit>().login();
+      await context.read<AuthCubit>().login(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
     } finally {
       if (mounted) setState(() => _isSigningIn = false);
     }
@@ -220,63 +213,63 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 20),
 
                   // Divider "Or log in with"
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          color: colorScheme.onSurface.withValues(alpha: 0.15),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Text(
-                          l10n.orLogInWith,
-                          style: AppTextStyles.body.copyWith(
-                            color: colorScheme.onSurface.withValues(
-                              alpha: 0.45,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: colorScheme.onSurface.withValues(alpha: 0.15),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
+                  // Row(
+                  //   children: [
+                  //     Expanded(
+                  //       child: Divider(
+                  //         color: colorScheme.onSurface.withValues(alpha: 0.15),
+                  //       ),
+                  //     ),
+                  //     Padding(
+                  //       padding: const EdgeInsets.symmetric(horizontal: 12),
+                  //       child: Text(
+                  //         l10n.orLogInWith,
+                  //         style: AppTextStyles.body.copyWith(
+                  //           color: colorScheme.onSurface.withValues(
+                  //             alpha: 0.45,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Expanded(
+                  //       child: Divider(
+                  //         color: colorScheme.onSurface.withValues(alpha: 0.15),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // const SizedBox(height: 16),
 
                   // Google Auth button
-                  SizedBox(
-                    height: 52,
-                    child: OutlinedButton.icon(
-                      onPressed: _isSigningIn ? null : _handleGoogleLogin,
-                      icon: Image.asset(
-                        AppAssets.google,
-                        height: 22,
-                        width: 22,
-                      ),
-                      label: Text(
-                        l10n.googleAuth,
-                        style: AppTextStyles.h2.copyWith(
-                          color: colorScheme.onSurface,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        side: BorderSide(
-                          color: colorScheme.onSurface.withValues(alpha: 0.2),
-                        ),
-                        backgroundColor: theme.brightness == Brightness.light
-                            ? Colors.white
-                            : theme.cardColor,
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   height: 52,
+                  //   child: OutlinedButton.icon(
+                  //     onPressed: _isSigningIn ? null : _handleGoogleLogin,
+                  //     icon: Image.asset(
+                  //       AppAssets.google,
+                  //       height: 22,
+                  //       width: 22,
+                  //     ),
+                  //     label: Text(
+                  //       l10n.googleAuth,
+                  //       style: AppTextStyles.h2.copyWith(
+                  //         color: colorScheme.onSurface,
+                  //         fontWeight: FontWeight.w500,
+                  //       ),
+                  //     ),
+                  //     style: OutlinedButton.styleFrom(
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(12),
+                  //       ),
+                  //       side: BorderSide(
+                  //         color: colorScheme.onSurface.withValues(alpha: 0.2),
+                  //       ),
+                  //       backgroundColor: theme.brightness == Brightness.light
+                  //           ? Colors.white
+                  //           : theme.cardColor,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

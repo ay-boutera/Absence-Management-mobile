@@ -10,7 +10,7 @@ import 'app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await init();
+  await newMethod();
 
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
@@ -25,3 +25,5 @@ void main() async {
     ),
   );
 }
+
+Future<void> newMethod() => init();

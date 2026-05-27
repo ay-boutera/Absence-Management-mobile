@@ -20,7 +20,7 @@ class TestScreen extends StatelessWidget {
     return Center(
       child: InkWell(
         onTap: () {
-          if (title == 'Worker Profile') {
+          if (title == 'title 5') {
             context.read<AuthCubit>().signOut();
           }
         },
