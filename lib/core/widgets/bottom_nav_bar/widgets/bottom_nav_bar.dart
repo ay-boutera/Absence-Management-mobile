@@ -65,7 +65,7 @@ class _BottomNavBarView extends StatelessWidget {
     final labels = _getLabels(context);
 
     final List<Widget> screens = [
-      const HomePage(),
+      HomePage(user: userEntity),
       TestScreen('title 2'),
       TestScreen('title 3'),
       const ManualAttendanceScreen(),

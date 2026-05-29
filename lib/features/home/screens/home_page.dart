@@ -1,3 +1,4 @@
+import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/features/home/widgets/bottom_nav.dart';
 import 'package:abs/features/home/widgets/class_card.dart';
 import 'package:abs/features/home/widgets/date_selector.dart';
@@ -8,7 +9,9 @@ import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.user});
+
+  final UserEntity user;
 
   final List<Widget> classesList = const [
     const ClassCard(
@@ -44,7 +47,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            const Header(),
+            Header(user: user),
             Divider(color: theme.colorScheme.outline.withValues(alpha: 0.1)),
 
             const SizedBox(height: 16),
