@@ -83,7 +83,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get todayClasses => 'حصص اليوم';
 
   @override
-  String get scanQrCode => 'مسح رمز الاستجابة السريعة';
+  String get scanQrCode => 'مسح الرمز';
 
   @override
   String get noClassesAvailable => 'لا يوجد حصص اليوم';

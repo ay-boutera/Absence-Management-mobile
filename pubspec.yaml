@@ -107,6 +107,14 @@ flutter:
           weight: 700
         - asset: assets/fonts/Figtree-Light.ttf
           weight: 300
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Cairo-Light.ttf
+          weight: 300
+    # 
+    # For details regarding fonts from package dependencies,
+    # see https://flutter.dev/to/font-from-package

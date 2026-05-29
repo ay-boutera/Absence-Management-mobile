@@ -33,13 +33,16 @@ class _DateSelectorState extends State<DateSelector> {
             date.month == selectedDate.month &&
             date.year == selectedDate.year;
 
-        return GestureDetector(
-          onTap: () {
-            setState(() {
-              selectedDate = date;
-            });
-          },
-          child: _DayItem(date: date, isSelected: isSelected),
+        // Wrap with Expanded so every day gets exactly 1/7th of the screen width
+        return Expanded(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                selectedDate = date;
+              });
+            },
+            child: _DayItem(date: date, isSelected: isSelected),
+          ),
         );
       }).toList(),
     );
@@ -54,32 +57,45 @@ class _DayItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dayNumber = DateFormat('dd').format(date);
-    final weekDay = DateFormat('EEE').format(date);
-    final theme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+
+    final locale = Localizations.localeOf(context).languageCode;
+
+    final dayNumber = date.day.toString().padLeft(2, '0');
+    final weekDay = DateFormat('EEE', locale).format(date);
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 250),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+      margin: const EdgeInsets.symmetric(horizontal: 2),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
       decoration: BoxDecoration(
-        color: isSelected ? Theme.of(context).primaryColor : Colors.transparent,
+        color: isSelected ? theme.primaryColor : theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             dayNumber,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : theme.onSurface,
+              color: isSelected
+                  ? theme.colorScheme.onPrimary
+                  : theme.textTheme.titleLarge?.color,
             ),
           ),
           const SizedBox(height: 4),
-          Text(
-            weekDay,
-            style: TextStyle(
-              fontSize: 12,
-              color: isSelected ? Colors.white70 : Colors.grey,
+
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              weekDay,
+              style: TextStyle(
+                fontSize: 12,
+                color: isSelected
+                    ? theme.colorScheme.onPrimary
+                    : theme.textTheme.bodySmall?.color,
+              ),
             ),
           ),
         ],

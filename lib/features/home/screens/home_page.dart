@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Text(l10n.todayClasses, style: theme.textTheme.titleLarge),
                 const SizedBox(width: 8),
-                _badge(classesList.length),
+                _badge(classesList.length, context),
               ],
             ),
 
@@ -78,16 +78,22 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _badge(int count) {
+  Widget _badge(int count, BuildContext context) {
+    final theme = Theme.of(context);
     return count == 0
         ? SizedBox.shrink()
         : Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.blue.shade100,
+              color: theme.colorScheme.primary,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Text(count.toString()),
+            child: Text(
+              count.toString(),
+              style: theme.textTheme.titleMedium?.copyWith(
+                color: theme.colorScheme.onPrimary,
+              ),
+            ),
           );
   }
 }

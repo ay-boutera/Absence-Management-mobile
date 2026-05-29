@@ -76,10 +76,15 @@ class PersonelInfo extends StatelessWidget {
                             title: user.email,
                             hasChevron: false,
                           ),
-
                           CustomDivider(),
                           ListItem(
-                            icon: Icons.calendar_month_outlined,
+                            icon: Icons.school,
+                            title: "${l10n.matriculeLabel} : ${user.studentId}",
+                            hasChevron: false,
+                          ),
+                          CustomDivider(),
+                          ListItem(
+                            icon: Icons.group_outlined,
                             title:
                                 "${getYearHelper(user.level)} - ${getGroup(user.group)}",
                             hasChevron: false,
