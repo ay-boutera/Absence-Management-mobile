@@ -45,10 +45,7 @@ class AuthCubit extends Cubit<AuthState> {
       final url = Uri.parse('$baseUrl/api/v1/auth/me');
       final response = await http.get(
         url,
-        headers: {
-          'Accept': 'application/json',
-          'Cookie': cookieHeader, // Send the tokens back to the server
-        },
+        headers: {'Accept': 'application/json', 'Cookie': cookieHeader},
       );
 
       if (response.statusCode == 200) {
@@ -64,13 +61,9 @@ class AuthCubit extends Cubit<AuthState> {
         await _secureStorage.delete(key: 'refresh_token');
         await _secureStorage.delete(key: 'csrf_token');
 
-        emit(AuthError('Session expired. Please log in again.'));
+        emit(AuthLoggedOut());
       } else {
-        emit(
-          AuthError(
-            'Failed to fetch profile. Server returned ${response.statusCode}',
-          ),
-        );
+        emit(AuthLoggedOut());
       }
     } catch (e) {
       print(e.toString());

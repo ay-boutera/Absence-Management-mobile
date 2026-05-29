@@ -342,4 +342,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get light => 'فاتح';
+
+  @override
+  String get myInfo => 'معلوماتي';
+
+  @override
+  String get matriculeLabel => 'رقم التسجيل';
+
+  @override
+  String get schoolAddress =>
+      'المدرسة العليا للإعلام الآلي 08 ماي 1945، سيدي بلعباس، الجزائر';
 }

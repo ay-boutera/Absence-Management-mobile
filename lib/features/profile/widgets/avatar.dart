@@ -30,7 +30,7 @@ class Avatar extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         initials,
-        style: AppTextStyles.h1.copyWith(color: Colors.white),
+        style: AppTextStyles.h1.copyWith(color: theme.cardColor),
       ),
     );
   }

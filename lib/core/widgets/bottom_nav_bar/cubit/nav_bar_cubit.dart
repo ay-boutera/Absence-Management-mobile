@@ -8,11 +8,8 @@ class NavBarCubit extends Cubit<NavBarState> {
 
   void goToScreen(int screenIndex) => emit(NavBarState(screenIndex));
 
+  // Simplified to a direct 1:1 mapping
   void onNavTap(int navIndex) {
-    emit(NavBarState(_navIndexToScreenIndex(navIndex)));
-  }
-
-  int _navIndexToScreenIndex(int navIndex) {
-    return navIndex < 2 ? navIndex : navIndex + 1;
+    emit(NavBarState(navIndex));
   }
 }

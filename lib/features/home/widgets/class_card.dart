@@ -1,5 +1,3 @@
-// features/home/pages/home_page.dart
-
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -28,14 +26,16 @@ class ClassCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           width: 1,
-          color: theme.colorScheme.outline.withValues(alpha: 0.1  ),
+          color: theme.colorScheme.outline.withValues(alpha: 0.1),
         ),
         color: theme.colorScheme.surface,
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Left side — takes all remaining space
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,37 +57,82 @@ class ClassCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      Text(title, style: theme.textTheme.titleMedium),
+                      // ✅ Wrap in Expanded so long titles don't push the right column off-screen
+                      Expanded(
+                        child: Text(
+                          title,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 8),
+                  // ✅ Clip teacher name too — can be long
                   Text(
                     teacher,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Text(room, style: theme.textTheme.bodyMedium),
+                  // ✅ Clip room as well
+                  Text(
+                    room,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: theme.textTheme.bodyMedium,
+                  ),
                 ],
               ),
             ),
 
-            Column(
-              children: [
-                Text(time),
-                const SizedBox(height: 8),
-                FilledButton(
-                  onPressed: () {
-                    //TODO: Navigate to scanner page
-                  },
-                  child: Text(
-                    l10n.scanQrCode,
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      color: theme.colorScheme.onPrimary,
+            const SizedBox(width: 12),
+
+            // Right side — fixed width so it never squeezes the left column
+            SizedBox(
+              width: 96,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    time,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton(
+                      onPressed: () {
+                        //TODO: Navigate to scanner page
+                      },
+                      style: FilledButton.styleFrom(
+                        // ✅ Tighter padding so label fits within the fixed width
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 8,
+                        ),
+                      ),
+                      child: Text(
+                        l10n.scanQrCode,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

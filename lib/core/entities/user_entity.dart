@@ -8,17 +8,17 @@ class UserEntity {
   final String? avatarUrl;
   final UserRole role;
   final bool isActive;
+  final String level;
+  final String group;
   final String? phone;
   final String? googleId;
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final DateTime? lastActivity;
+  final String studentId;
 
   // Student-specific fields
-  final String? studentId;
   final String? program;
-  final String? level;
-  final String? group;
   final bool? canSubmitJustifications;
   final bool? canViewAttendance;
   final bool? canConfirmRattrapage;
@@ -32,15 +32,15 @@ class UserEntity {
     this.avatarUrl,
     required this.role,
     required this.isActive,
+    required this.level,
+    required this.group,
+    required this.studentId,
     this.phone,
     this.googleId,
     this.createdAt,
     this.updatedAt,
     this.lastActivity,
-    this.studentId,
     this.program,
-    this.level,
-    this.group,
     this.canSubmitJustifications,
     this.canViewAttendance,
     this.canConfirmRattrapage,
@@ -56,7 +56,7 @@ class UserEntity {
       avatarUrl: json['avatar_url'] as String?,
       role: UserRole.fromString(json['role'] as String),
       isActive: json['is_active'] as bool,
-      phone: json['phone'] as String?,
+      phone: json['phone'] as String,
       googleId: json['google_id'] as String?,
       createdAt: json['created_at'] != null
           ? DateTime.parse(json['created_at'] as String)
@@ -67,10 +67,10 @@ class UserEntity {
       lastActivity: json['last_activity'] != null
           ? DateTime.parse(json['last_activity'] as String)
           : null,
-      studentId: json['student_id'] as String?,
+      studentId: json['student_id'] as String,
       program: json['program'] as String?,
-      level: json['level'] as String?,
-      group: json['group'] as String?,
+      level: json['level'] as String,
+      group: json['group'] as String,
       canSubmitJustifications: json['can_submit_justifications'] as bool?,
       canViewAttendance: json['can_view_attendance'] as bool?,
       canConfirmRattrapage: json['can_confirm_rattrapage'] as bool?,

@@ -1,4 +1,3 @@
-import 'package:abs/config/constants/enums.dart';
 import 'package:abs/core/services/local_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +12,11 @@ class LocaleCubit extends Cubit<Locale> {
     return Locale(languageCode);
   }
 
-  void changeLocale(Locale locale, String userId, UserRole userType) {
+  void changeLocale(Locale locale) {
     if (state.languageCode == locale.languageCode) return;
+
+    storage.setLanguage(locale.languageCode);
+
+    emit(locale);
   }
 }

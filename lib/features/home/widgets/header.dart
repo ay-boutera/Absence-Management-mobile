@@ -3,6 +3,7 @@
 import 'package:abs/config/constants/app_assets.dart';
 import 'package:abs/config/theme/app_text_styles.dart';
 import 'package:abs/core/entities/user_entity.dart';
+import 'package:abs/core/helpers/get_year_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -35,7 +36,7 @@ class Header extends StatelessWidget {
               style: AppTextStyles.bodyMedium,
             ),
             Text(
-              "${getYearHelper(user.level!)} student (${user.group})",
+              "${getYearHelper(user.level)} student (${user.group})",
               style: AppTextStyles.bodyMedium.copyWith(color: colors.primary),
             ),
           ],
@@ -49,22 +50,5 @@ class Header extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-String getYearHelper(String level) {
-  switch (level) {
-    case 'L1':
-      return '1CP';
-    case 'L2':
-      return '2CP';
-    case 'L3':
-      return '3CS';
-    case 'L4':
-      return '4CS';
-    case 'L5':
-      return '5CS';
-    default:
-      return '';
   }
 }

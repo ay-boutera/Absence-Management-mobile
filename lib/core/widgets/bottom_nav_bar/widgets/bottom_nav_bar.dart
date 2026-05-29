@@ -55,13 +55,6 @@ class _BottomNavBarView extends StatelessWidget {
     return [l10n.home, l10n.schedule, l10n.attendance, l10n.more];
   }
 
-  // screen index (0-3) → nav bar active index (skips FAB gap)
-  // int _screenIndexToNavIndex(int screenIndex) {
-  //   // screen 0 → nav 0, screen 1 → nav 1, screen 2 → nav 2, screen 3 → nav 3
-  //   // No offset needed — FAB is centerDocked, not counted in itemCount
-  //   return screenIndex;
-  // }
-
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;

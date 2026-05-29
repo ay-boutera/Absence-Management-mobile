@@ -733,6 +733,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Light'**
   String get light;
+
+  /// No description provided for @myInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'My info'**
+  String get myInfo;
+
+  /// No description provided for @matriculeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Matricule'**
+  String get matriculeLabel;
+
+  /// No description provided for @schoolAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria'**
+  String get schoolAddress;
 }
 
 class _AppLocalizationsDelegate

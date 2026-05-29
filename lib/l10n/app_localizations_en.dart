@@ -340,4 +340,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get light => 'Light';
+
+  @override
+  String get myInfo => 'My info';
+
+  @override
+  String get matriculeLabel => 'Matricule';
+
+  @override
+  String get schoolAddress =>
+      'Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria';
 }
