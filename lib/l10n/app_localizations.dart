@@ -607,6 +607,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exams start 7 January 2026'**
   String get examsStartDate;
+
+  /// No description provided for @studentName.
+  ///
+  /// In en, this message translates to:
+  /// **'Bouhafs Rim'**
+  String get studentName;
+
+  /// No description provided for @studentLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'1CS Student'**
+  String get studentLevel;
+
+  /// No description provided for @operations.
+  ///
+  /// In en, this message translates to:
+  /// **'Operations'**
+  String get operations;
+
+  /// No description provided for @myInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'My information'**
+  String get myInformation;
+
+  /// No description provided for @timeTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Time table'**
+  String get timeTable;
+
+  /// No description provided for @examsSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Exams schedule'**
+  String get examsSchedule;
+
+  /// No description provided for @attendancePerformance.
+  ///
+  /// In en, this message translates to:
+  /// **'Attendance performance'**
+  String get attendancePerformance;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change your password'**
+  String get changePassword;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @contactEsi.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact ESI'**
+  String get contactEsi;
+
+  /// No description provided for @contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get contact;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @website.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get website;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logOut;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark;
+
+  /// No description provided for @light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light;
 }
 
 class _AppLocalizationsDelegate

@@ -277,4 +277,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get examsStartDate => 'Exams start 7 January 2026';
+
+  @override
+  String get studentName => 'Bouhafs Rim';
+
+  @override
+  String get studentLevel => '1CS Student';
+
+  @override
+  String get operations => 'Operations';
+
+  @override
+  String get myInformation => 'My information';
+
+  @override
+  String get timeTable => 'Time table';
+
+  @override
+  String get examsSchedule => 'Exams schedule';
+
+  @override
+  String get attendancePerformance => 'Attendance performance';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get changePassword => 'Change your password';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get contactEsi => 'Contact ESI';
+
+  @override
+  String get contact => 'Contact';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get website => 'Website';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get logOut => 'Log Out';
+
+  @override
+  String get preferences => 'Preferences';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get dark => 'Dark';
+
+  @override
+  String get light => 'Light';
 }

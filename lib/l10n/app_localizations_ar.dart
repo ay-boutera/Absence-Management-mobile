@@ -279,4 +279,67 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get examsStartDate => 'تبدأ الامتحانات في 7 جانفي 2026';
+
+  @override
+  String get studentName => 'بوحفص ريم';
+
+  @override
+  String get studentLevel => 'طالب 1CS';
+
+  @override
+  String get operations => 'العمليات';
+
+  @override
+  String get myInformation => 'معلوماتي';
+
+  @override
+  String get timeTable => 'جدول الحصص';
+
+  @override
+  String get examsSchedule => 'جدول الامتحانات';
+
+  @override
+  String get attendancePerformance => 'سجل الحضور';
+
+  @override
+  String get notifications => 'الإشعارات';
+
+  @override
+  String get account => 'الحساب';
+
+  @override
+  String get changePassword => 'تغيير كلمة المرور';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get contactEsi => 'تواصل مع ESI';
+
+  @override
+  String get contact => 'الاتصال';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get website => 'الموقع الإلكتروني';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String get logOut => 'تسجيل الخروج';
+
+  @override
+  String get preferences => 'تفضيلات';
+
+  @override
+  String get theme => 'المظهر';
+
+  @override
+  String get dark => 'داكن';
+
+  @override
+  String get light => 'فاتح';
 }
