@@ -751,6 +751,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria'**
   String get schoolAddress;
+
+  /// No description provided for @notRegistered.
+  ///
+  /// In en, this message translates to:
+  /// **'Not registered'**
+  String get notRegistered;
 }
 
 class _AppLocalizationsDelegate

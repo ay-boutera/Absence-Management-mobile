@@ -352,4 +352,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get schoolAddress =>
       'المدرسة العليا للإعلام الآلي 08 ماي 1945، سيدي بلعباس، الجزائر';
+
+  @override
+  String get notRegistered => 'غير مسجل';
 }

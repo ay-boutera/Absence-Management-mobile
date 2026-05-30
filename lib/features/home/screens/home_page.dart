@@ -1,40 +1,34 @@
 import 'package:abs/core/entities/user_entity.dart';
+import 'package:abs/features/home/cubit/home_cubit.dart';
 import 'package:abs/features/home/widgets/bottom_nav.dart';
 import 'package:abs/features/home/widgets/class_card.dart';
 import 'package:abs/features/home/widgets/date_selector.dart';
 import 'package:abs/features/home/widgets/empty_class_card.dart';
 import 'package:abs/features/home/widgets/header.dart';
 import 'package:abs/features/home/widgets/timetable_card.dart';
+import 'package:abs/injection/injection_container.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class HomeProvider extends StatelessWidget {
+  const HomeProvider({super.key, required this.user});
+
+  final UserEntity user;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => sl<HomeCubit>()..fetchMySessions(),
+      child: HomePage(user: user),
+    );
+  }
+}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.user});
 
   final UserEntity user;
-
-  final List<Widget> classesList = const [
-    const ClassCard(
-      title: "BDD",
-      teacher: "Dr. Ammar Bensaber",
-      room: "Salle 5 - sup",
-      time: "09:30 - 11:00",
-    ),
-
-    const ClassCard(
-      title: "Machine Learning",
-      teacher: "Dr. Sami Khelifa",
-      room: "Salle 2 - sup",
-      time: "01:30 - 03:00",
-    ),
-
-    const ClassCard(
-      title: "Machine Learning",
-      teacher: "Dr. Sami Khelifa",
-      room: "Salle 2 - sup",
-      time: "01:30 - 03:00",
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +53,55 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            Row(
-              children: [
-                Text(l10n.todayClasses, style: theme.textTheme.titleLarge),
-                const SizedBox(width: 8),
-                _badge(classesList.length, context),
-              ],
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                if (state is HomeLoadedSuccess) {
+                  if (state.sessions.isEmpty) {
+                    return EmptyClassCard();
+                  }
+                  return Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            l10n.todayClasses,
+                            style: theme.textTheme.titleLarge,
+                          ),
+                          const SizedBox(width: 8),
+                          _badge(state.sessions.length, context),
+                        ],
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      ...(state.sessions.map((session) {
+                        return ClassCard(
+                          title: session.subject,
+                          teacher: session.teachers.isNotEmpty
+                              ? session.teachers.first
+                              : l10n.notRegistered,
+                          room: session.room,
+                          time: '${session.timeStart} - ${session.timeEnd}',
+                        );
+                      })),
+                    ],
+                  );
+                } else if (state is HomeError) {
+                  return Center(child: Text(state.message));
+                } else if (state is HomeLoading) {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 80.0),
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: theme.primaryColor,
+                      ),
+                    ),
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
             ),
-
-            const SizedBox(height: 12),
-
-            ...(classesList.isEmpty ? [EmptyClassCard()] : classesList),
 
             SizedBox(height: 64),
           ],

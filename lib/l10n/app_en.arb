@@ -113,6 +113,7 @@
   "dark":"Dark",
   "light":"Light",
   "myInfo": "My info",
-"matriculeLabel": "Matricule",
-"schoolAddress": "Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria"
+  "matriculeLabel": "Matricule",
+  "schoolAddress": "Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria",
+  "notRegistered": "Not registered"
 }

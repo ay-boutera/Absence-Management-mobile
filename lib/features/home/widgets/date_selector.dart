@@ -1,4 +1,6 @@
+import 'package:abs/features/home/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class DateSelector extends StatefulWidget {
@@ -39,6 +41,10 @@ class _DateSelectorState extends State<DateSelector> {
             onTap: () {
               setState(() {
                 selectedDate = date;
+                final String todayName = frenchWeekdays[date.weekday]!;
+
+                print(todayName);
+                context.read<HomeCubit>().changeSelectedDay(todayName);
               });
             },
             child: _DayItem(date: date, isSelected: isSelected),

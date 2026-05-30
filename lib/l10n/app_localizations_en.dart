@@ -350,4 +350,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get schoolAddress =>
       'Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria';
+
+  @override
+  String get notRegistered => 'Not registered';
 }

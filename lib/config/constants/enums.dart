@@ -15,4 +15,4 @@ enum UserRole {
 
 enum AbsenceStatus { unjustified, rejected, pending, justified }
 
-enum DocumentType { none, pdf }
+enum DocumentType { none, pdf, png, jpeg, jpg }
