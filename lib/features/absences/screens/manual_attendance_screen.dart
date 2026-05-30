@@ -1,10 +1,10 @@
 import 'package:abs/core/entities/subject_attendance_entity.dart';
-import 'package:abs/features/attendance/widgets/check_absences_card.dart';
-import 'package:abs/features/attendance/widgets/content_sheet.dart';
-import 'package:abs/features/attendance/widgets/overall_score_card.dart';
-import 'package:abs/features/attendance/widgets/page_header.dart';
-import 'package:abs/features/attendance/widgets/semester_tab.dart';
-import 'package:abs/features/attendance/widgets/subject_card.dart';
+import 'package:abs/features/absences/widgets/check_absences_card.dart';
+import 'package:abs/features/absences/widgets/content_sheet.dart';
+import 'package:abs/features/absences/widgets/overall_score_card.dart';
+import 'package:abs/features/absences/widgets/page_header.dart';
+import 'package:abs/features/absences/widgets/semester_tab.dart';
+import 'package:abs/features/absences/widgets/subject_card.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 

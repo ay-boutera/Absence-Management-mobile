@@ -1,5 +1,5 @@
 import 'package:abs/core/entities/Absence_entity.dart';
-import 'package:abs/features/my_absence/widgets/absence_list_item.dart';
+import 'package:abs/features/absences/widgets/absence_list_item.dart';
 import 'package:flutter/material.dart';
 
 class AbsenceList extends StatelessWidget {

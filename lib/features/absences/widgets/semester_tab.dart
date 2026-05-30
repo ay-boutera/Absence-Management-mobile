@@ -1,4 +1,4 @@
-import 'package:abs/features/attendance/widgets/semester_tab_item.dart';
+import 'package:abs/features/absences/widgets/semester_tab_item.dart';
 import 'package:flutter/material.dart';
 
 class SemesterTab extends StatelessWidget {

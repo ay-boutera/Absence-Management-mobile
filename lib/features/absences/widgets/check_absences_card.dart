@@ -1,17 +1,16 @@
-import 'package:abs/features/attendance/widgets/circular_percentage.dart';
+import 'package:abs/config/router/app_routes.dart';
+import 'package:abs/features/absences/widgets/clock_illustration.dart';
 import 'package:flutter/material.dart';
 
-class SubjectCard extends StatelessWidget {
-  const SubjectCard({
+class CheckAbsencesCard extends StatelessWidget {
+  const CheckAbsencesCard({
     super.key,
     required this.title,
-    required this.subtitle,
-    required this.percentage,
+    required this.actionLabel,
   });
 
   final String title;
-  final String subtitle;
-  final int percentage;
+  final String actionLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class SubjectCard extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
@@ -41,19 +40,28 @@ class SubjectCard extends StatelessWidget {
                   title,
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w700,
+                    color: theme.colorScheme.primary,
                   ),
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                const SizedBox(height: 8),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.myAbsence);
+                  },
+                  child: Text(
+                    actionLabel,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.primary,
+                      decoration: TextDecoration.underline,
+                      decorationColor: theme.colorScheme.primary,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          CircularPercentage(percentage: percentage),
+          const SizedBox(width: 12),
+          ClockIllustration(),
         ],
       ),
     );

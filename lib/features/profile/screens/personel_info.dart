@@ -85,8 +85,7 @@ class PersonelInfo extends StatelessWidget {
                           CustomDivider(),
                           ListItem(
                             icon: Icons.group_outlined,
-                            title:
-                                "${getYearHelper(user.level)} - ${getGroup(user.group)}",
+                            title: "${user.level} - ${getGroup(user.group)}",
                             hasChevron: false,
                           ),
                           CustomDivider(),

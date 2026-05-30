@@ -17,11 +17,11 @@ class AbsenceListItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        if (absence.status == AbsenceStatus.rejected) {
+        if (absence.justificationStatus == AbsenceStatus.rejected) {
           Navigator.pushNamed(context, AppRoutes.absenceDetails);
         }
 
-        if (absence.status == AbsenceStatus.unjustified) {
+        if (absence.justificationStatus == AbsenceStatus.unjustified) {
           Navigator.pushNamed(context, AppRoutes.justifyAbsence);
         }
       },
@@ -45,7 +45,7 @@ class AbsenceListItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        absence.title,
+                        absence.moduleName,
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w600,
                           color: statusColor,
@@ -62,7 +62,7 @@ class AbsenceListItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${absence.currentCount}/${absence.totalCount}',
+                  '${absence.absenceId}/${absence.sessionId}',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: statusColor,
@@ -75,7 +75,7 @@ class AbsenceListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Status: ${absence.statusText}',
+                  'Status: ${absence.justificationStatus}',
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -92,7 +92,7 @@ class AbsenceListItem extends StatelessWidget {
   Widget _buildIcon(ThemeData theme, Color color) {
     IconData iconData;
 
-    switch (absence.status) {
+    switch (absence.justificationStatus) {
       case AbsenceStatus.unjustified:
         iconData = Icons.description_outlined;
         break;
@@ -104,6 +104,8 @@ class AbsenceListItem extends StatelessWidget {
         break;
       case AbsenceStatus.justified:
         iconData = Icons.check_circle_outline;
+      default:
+        iconData = Icons.description_outlined;
         break;
     }
 
@@ -122,7 +124,7 @@ class AbsenceListItem extends StatelessWidget {
     ThemeData theme,
     Color color,
   ) {
-    if (absence.status == AbsenceStatus.unjustified) {
+    if (absence.justificationStatus == AbsenceStatus.unjustified) {
       return TextButton(
         onPressed: () {
           // Handle justify action
@@ -140,7 +142,7 @@ class AbsenceListItem extends StatelessWidget {
           ),
         ),
       );
-    } else if (absence.status == AbsenceStatus.rejected) {
+    } else if (absence.justificationStatus == AbsenceStatus.rejected) {
       return TextButton(
         onPressed: () {
           // Handle see reason action
@@ -158,7 +160,7 @@ class AbsenceListItem extends StatelessWidget {
           ),
         ),
       );
-    } else if (absence.status == AbsenceStatus.pending) {
+    } else if (absence.justificationStatus == AbsenceStatus.pending) {
       return TextButton(
         onPressed: () {
           // Handle review action
@@ -176,7 +178,7 @@ class AbsenceListItem extends StatelessWidget {
           ),
         ),
       );
-    } else if (absence.documentType == DocumentType.pdf) {
+    } else if (absence.moduleName.isNotEmpty) {
       return TextButton(
         onPressed: () {
           // Handle PDF download/view
@@ -187,7 +189,7 @@ class AbsenceListItem extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
-          absence.documentName ?? '',
+          absence.moduleName,
           style: theme.textTheme.bodyMedium?.copyWith(
             color: Colors.green[700],
             fontWeight: FontWeight.w600,

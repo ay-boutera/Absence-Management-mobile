@@ -1,4 +1,4 @@
-import 'package:abs/features/attendance/widgets/page_header.dart';
+import 'package:abs/features/absences/widgets/page_header.dart';
 import 'package:abs/features/justify_absence/widgets/empty_exams_card.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
