@@ -120,5 +120,7 @@
   "unjustified":"Unjustified",
   "rejected":"Rejected",
   "pending":"Pending",
-  "justified":"Justified"
+  "justified":"Justified",
+  "familyEmergency":"Family Emergency",
+  "other":"Other"
 }

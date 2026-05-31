@@ -1,4 +1,5 @@
-import 'package:abs/core/entities/subject_attendance_entity.dart';
+import 'package:abs/core/entities/module_stats.dart';
+import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:abs/features/absences/widgets/check_absences_card.dart';
 import 'package:abs/features/absences/widgets/content_sheet.dart';
 import 'package:abs/features/absences/widgets/overall_score_card.dart';
@@ -7,6 +8,7 @@ import 'package:abs/features/absences/widgets/semester_tab.dart';
 import 'package:abs/features/absences/widgets/subject_card.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ModulesAttendanceScreen extends StatefulWidget {
   const ModulesAttendanceScreen({super.key});
@@ -19,61 +21,10 @@ class ModulesAttendanceScreen extends StatefulWidget {
 class _ModulesAttendanceScreenState extends State<ModulesAttendanceScreen> {
   int _selectedSemester = 0;
 
-  List<SubjectAttendanceEntity> _subjectsForSemester(
-    AppLocalizations l10n,
-    int semester,
-  ) {
-    if (semester == 0) {
-      return [
-        SubjectAttendanceEntity(
-          title: l10n.subjectLow,
-          sessions: 5,
-          percentage: 70,
-        ),
-        SubjectAttendanceEntity(
-          title: l10n.subjectAcsi,
-          sessions: 3,
-          percentage: 40,
-        ),
-        SubjectAttendanceEntity(
-          title: l10n.subjectBdd,
-          sessions: 2,
-          percentage: 25,
-        ),
-        SubjectAttendanceEntity(
-          title: l10n.subjectTdd,
-          sessions: 3,
-          percentage: 55,
-        ),
-        SubjectAttendanceEntity(
-          title: l10n.subjectCiCd,
-          sessions: 0,
-          percentage: 85,
-          subtitle: l10n.priorityHigh,
-        ),
-      ];
-    }
-
-    // Semester 2 – placeholder data
-    return [
-      SubjectAttendanceEntity(
-        title: l10n.subjectLow,
-        sessions: 8,
-        percentage: 90,
-      ),
-      SubjectAttendanceEntity(
-        title: l10n.subjectAcsi,
-        sessions: 6,
-        percentage: 60,
-      ),
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final subjects = _subjectsForSemester(l10n, _selectedSemester);
 
     return Scaffold(
       backgroundColor: theme.colorScheme.primary,
@@ -95,27 +46,44 @@ class _ModulesAttendanceScreenState extends State<ModulesAttendanceScreen> {
                   actionLabel: l10n.checkAbsencesAction,
                 ),
                 const SizedBox(height: 8),
-                OverallScoreCard(
-                  label: l10n.overallScoreLabel,
-                  group: l10n.overallScoreGroup,
-                  percentage: 85,
+                BlocBuilder<MyAbsenceCubit, MyAbsenceState>(
+                  builder: (context, state) {
+                    if (state is MyAbsenceSuccess) {
+                      final List<ModuleStats> subjects = state.modulesStats;
+                      return Column(
+                        children: [
+                          OverallScoreCard(
+                            label: l10n.overallScoreLabel,
+                            group: l10n.overallScoreGroup,
+                            percentage: 85,
+                          ),
+                          const SizedBox(height: 12),
+                          SemesterTab(
+                            label1: l10n.semester1,
+                            label2: l10n.semester2,
+                            selectedIndex: _selectedSemester,
+                            onChanged: (index) =>
+                                setState(() => _selectedSemester = index),
+                          ),
+                          const SizedBox(height: 8),
+                          ...subjects.map(
+                            (subject) => SubjectCard(
+                              title: subject.moduleName,
+                              subtitle:
+                                  '${subject.totalSessions - subject.absences}/${subject.totalSessions}',
+                              percentage: subject.getAttendanceRate,
+                            ),
+                          ),
+                        ],
+                      );
+                    }
+                    if (state is MyAbsenceError) {
+                      return Center(child: Text(state.message));
+                    }
+                    return const Center(child: CircularProgressIndicator());
+                  },
                 ),
-                const SizedBox(height: 12),
-                SemesterTab(
-                  label1: l10n.semester1,
-                  label2: l10n.semester2,
-                  selectedIndex: _selectedSemester,
-                  onChanged: (index) =>
-                      setState(() => _selectedSemester = index),
-                ),
-                const SizedBox(height: 8),
-                ...subjects.map(
-                  (subject) => SubjectCard(
-                    title: subject.title,
-                    subtitle: subject.getFactor(),
-                    percentage: subject.percentage,
-                  ),
-                ),
+
                 const SizedBox(height: 128),
               ],
             ),

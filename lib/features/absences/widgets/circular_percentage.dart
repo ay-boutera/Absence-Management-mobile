@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CircularPercentage extends StatelessWidget {
   const CircularPercentage({super.key, required this.percentage});
 
-  final int percentage;
+  final double percentage;
 
   Color _getColor(BuildContext context) {
     final primary = Theme.of(context).colorScheme.primary;

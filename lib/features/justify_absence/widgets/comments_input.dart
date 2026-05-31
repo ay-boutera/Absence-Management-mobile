@@ -2,7 +2,9 @@ import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class CommentsInput extends StatelessWidget {
-  const CommentsInput({super.key});
+  const CommentsInput({super.key, required this.onChanged});
+
+  final ValueChanged<String> onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class CommentsInput extends StatelessWidget {
         const SizedBox(height: 8),
         TextField(
           maxLines: 4,
+          onChanged: onChanged,
           decoration: InputDecoration(
             hintText: l10n.commentsPlaceholder,
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),

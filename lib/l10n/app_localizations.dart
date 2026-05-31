@@ -787,6 +787,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Justified'**
   String get justified;
+
+  /// No description provided for @familyEmergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Emergency'**
+  String get familyEmergency;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
 }
 
 class _AppLocalizationsDelegate

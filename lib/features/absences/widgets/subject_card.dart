@@ -11,7 +11,7 @@ class SubjectCard extends StatelessWidget {
 
   final String title;
   final String subtitle;
-  final int percentage;
+  final double percentage;
 
   @override
   Widget build(BuildContext context) {

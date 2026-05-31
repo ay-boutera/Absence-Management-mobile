@@ -1,17 +1,16 @@
+import 'package:abs/core/entities/Absence_entity.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class SessionSelector extends StatelessWidget {
-  const SessionSelector({super.key});
+  const SessionSelector({super.key, required this.absence});
+
+  final AbsenceItem absence;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final inputDecoration = InputDecoration(
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,27 +23,36 @@ class SessionSelector extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        DropdownButtonFormField<String>(
-          decoration: inputDecoration,
-          hint: Text(l10n.selectPlaceholder),
-          items: const [
-            DropdownMenuItem(
-              value: 'session1',
-              child: Text('BDD - Oct 24, 09:00'),
-            ),
-          ],
-          onChanged: (value) {},
-        ),
-        const SizedBox(height: 12),
-        DropdownButtonFormField<String>(
-          decoration: inputDecoration,
-          items: const [
-            DropdownMenuItem(
-              value: 'session2',
-              child: Text('BDD - Oct 24, 09:00'),
-            ),
-          ],
-          onChanged: (value) {},
+        // The new static display box
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          decoration: BoxDecoration(
+            color:
+                theme.colorScheme.surfaceContainerLow, // Soft background fill
+            border: Border.all(color: theme.colorScheme.outlineVariant),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                Icons.class_outlined,
+                color: theme.colorScheme.primary,
+                size: 20,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  // TODO: Change '.moduleName' to whatever field your AbsenceItem entity uses (e.g., absence.subject, absence.title)
+                  absence.moduleName,
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

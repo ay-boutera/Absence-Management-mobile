@@ -119,5 +119,7 @@
   "unjustified":"غير مبرر",
   "rejected":"مرفوض",
   "pending":"قيد الانتظار",
-  "justified":"مبرر"
+  "justified":"مبرر",
+  "familyEmergency":"ظرف عائلي",
+  "other":"أخرى"
 }

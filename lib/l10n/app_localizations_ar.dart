@@ -370,4 +370,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get justified => 'مبرر';
+
+  @override
+  String get familyEmergency => 'ظرف عائلي';
+
+  @override
+  String get other => 'أخرى';
 }

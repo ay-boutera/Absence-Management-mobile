@@ -368,4 +368,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get justified => 'Justified';
+
+  @override
+  String get familyEmergency => 'Family Emergency';
+
+  @override
+  String get other => 'Other';
 }

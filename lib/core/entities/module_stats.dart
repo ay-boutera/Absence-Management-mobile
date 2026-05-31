@@ -9,7 +9,7 @@ class ModuleStats {
     required this.absences,
   });
 
-  double get attendanceRate {
+  double get getAttendanceRate {
     if (totalSessions == 0) {
       return 100.0;
     }
