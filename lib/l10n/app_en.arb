@@ -115,5 +115,10 @@
   "myInfo": "My info",
   "matriculeLabel": "Matricule",
   "schoolAddress": "Ecole superieure en informatique 08 mai 1945 , Sidi Bel Abbes , Algeria",
-  "notRegistered": "Not registered"
+  "notRegistered": "Not registered",
+  "status":"Status",
+  "unjustified":"Unjustified",
+  "rejected":"Rejected",
+  "pending":"Pending",
+  "justified":"Justified"
 }

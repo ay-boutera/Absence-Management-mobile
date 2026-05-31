@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                         return ClassCard(
                           title: session.subject,
                           teacher: session.teachers.isNotEmpty
-                              ? session.teachers.first
+                              ? '${session.teachers.first.firstName} ${session.teachers.first.lastName}'
                               : l10n.notRegistered,
                           room: session.room,
                           time: '${session.timeStart} - ${session.timeEnd}',

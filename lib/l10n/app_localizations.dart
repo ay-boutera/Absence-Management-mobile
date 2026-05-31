@@ -757,6 +757,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not registered'**
   String get notRegistered;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @unjustified.
+  ///
+  /// In en, this message translates to:
+  /// **'Unjustified'**
+  String get unjustified;
+
+  /// No description provided for @rejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get rejected;
+
+  /// No description provided for @pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pending;
+
+  /// No description provided for @justified.
+  ///
+  /// In en, this message translates to:
+  /// **'Justified'**
+  String get justified;
 }
 
 class _AppLocalizationsDelegate

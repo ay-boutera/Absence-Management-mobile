@@ -1,3 +1,4 @@
+import 'package:abs/core/entities/teacher.dart';
 import 'package:equatable/equatable.dart';
 
 class SessionEntity extends Equatable {
@@ -13,7 +14,7 @@ class SessionEntity extends Equatable {
   final String? section;
   final String? speciality;
   final String semester;
-  final List<String> teachers;
+  final List<Teacher> teachers;
 
   const SessionEntity({
     required this.id,
@@ -62,7 +63,14 @@ class SessionEntity extends Equatable {
       section: json['section'] as String?,
       speciality: json['speciality'] as String?,
       semester: json['semester'] as String,
-      teachers: List<String>.from(json['teachers'] ?? []),
+      teachers:
+          (json['teachers'] as List<dynamic>?)
+              ?.map(
+                (teacherJson) =>
+                    Teacher.fromJson(teacherJson as Map<String, dynamic>),
+              )
+              .toList() ??
+          const [],
     );
   }
 }

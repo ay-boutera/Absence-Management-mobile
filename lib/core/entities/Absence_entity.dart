@@ -10,7 +10,7 @@ class AbsenceItem {
   final String moduleName;
   final String teacherName;
   final bool isAbsent;
-  final AbsenceStatus? justificationStatus;
+  final AbsenceStatus justificationStatus;
   final String sessionGroup;
   final bool isOwnGroup;
   final bool isCrossSession;
@@ -24,11 +24,11 @@ class AbsenceItem {
     required this.moduleName,
     required this.teacherName,
     required this.isAbsent,
-    this.justificationStatus,
     required this.sessionGroup,
     required this.isOwnGroup,
     required this.isCrossSession,
-  });
+    AbsenceStatus? justificationStatus,
+  }) : justificationStatus = justificationStatus ?? AbsenceStatus.unjustified;
 
   Color getStatusColor(ThemeData theme) {
     switch (justificationStatus) {
@@ -39,7 +39,6 @@ class AbsenceItem {
       case AbsenceStatus.justified:
         return Colors.green[700]!;
       case AbsenceStatus.unjustified:
-      case null: // Default styling if status is null
         return theme.colorScheme.onSurface;
     }
   }
@@ -54,8 +53,6 @@ class AbsenceItem {
         return 'Pending';
       case AbsenceStatus.justified:
         return 'Justified';
-      case null:
-        return 'No Status';
     }
   }
 

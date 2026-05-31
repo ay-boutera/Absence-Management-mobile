@@ -88,8 +88,8 @@ class AuthCubit extends Cubit<AuthState> {
           'Accept': 'application/json',
         },
         body: jsonEncode({
-          'identifier': 'b.brahmie@esi-sba.dz',
-          'password': 'Ilyesbrahmi123!',
+          'identifier': 'brahmi.ilyess@esi-sba.dz',
+          'password': 'ExampleAuth1!',
         }),
       );
 

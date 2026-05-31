@@ -114,5 +114,10 @@
   "myInfo": "معلوماتي",
   "matriculeLabel": "رقم التسجيل",
   "schoolAddress": "المدرسة العليا للإعلام الآلي 08 ماي 1945، سيدي بلعباس، الجزائر",
-  "notRegistered": "غير مسجل"
+  "notRegistered": "غير مسجل",
+  "status":"الحالة",
+  "unjustified":"غير مبرر",
+  "rejected":"مرفوض",
+  "pending":"قيد الانتظار",
+  "justified":"مبرر"
 }

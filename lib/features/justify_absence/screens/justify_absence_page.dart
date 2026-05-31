@@ -1,10 +1,17 @@
+import 'package:abs/core/entities/Absence_entity.dart';
 import 'package:abs/features/absences/widgets/page_header.dart';
-import 'package:abs/features/justify_absence/widgets/justification_form_card.dart';
+import 'package:abs/features/justify_absence/widgets/comments_input.dart';
+import 'package:abs/features/justify_absence/widgets/document_uploader.dart';
+import 'package:abs/features/justify_absence/widgets/reason_selector.dart';
+import 'package:abs/features/justify_absence/widgets/session_selector.dart';
+import 'package:abs/features/justify_absence/widgets/submit_button.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class JustifyAbsencePage extends StatelessWidget {
-  const JustifyAbsencePage({super.key});
+  const JustifyAbsencePage({super.key, required this.absence});
+
+  final AbsenceItem absence;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,22 @@ class JustifyAbsencePage extends StatelessWidget {
               ),
             ),
 
-            JustificationFormCard(),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: const [
+                  SessionSelector(),
+                  SizedBox(height: 24),
+                  ReasonSelector(),
+                  SizedBox(height: 24),
+                  DocumentUploader(),
+                  SizedBox(height: 24),
+                  CommentsInput(),
+                  SizedBox(height: 24),
+                  SubmitButton(),
+                ],
+              ),
+            ),
 
             SizedBox(height: 62),
           ],

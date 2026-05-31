@@ -1,9 +1,12 @@
+import 'package:abs/core/entities/Absence_entity.dart';
 import 'package:abs/features/absence_details/widgets/detail_row.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class AbsenceInfoCard extends StatelessWidget {
-  const AbsenceInfoCard({super.key});
+  const AbsenceInfoCard({super.key, required this.absence});
+
+  final AbsenceItem absence;
 
   @override
   Widget build(BuildContext context) {

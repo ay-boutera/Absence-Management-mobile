@@ -1,6 +1,7 @@
 import 'package:abs/config/constants/enums.dart';
-import 'package:abs/config/router/app_routes.dart';
 import 'package:abs/core/entities/Absence_entity.dart';
+import 'package:abs/features/absence_details/screens/absence_details_page.dart';
+import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -14,16 +15,16 @@ class AbsenceListItem extends StatelessWidget {
     final theme = Theme.of(context);
     final dateFormat = DateFormat('MMM dd, yyyy');
     final statusColor = absence.getStatusColor(theme);
+    final l10n = AppLocalizations.of(context);
 
     return GestureDetector(
       onTap: () {
-        if (absence.justificationStatus == AbsenceStatus.rejected) {
-          Navigator.pushNamed(context, AppRoutes.absenceDetails);
-        }
-
-        if (absence.justificationStatus == AbsenceStatus.unjustified) {
-          Navigator.pushNamed(context, AppRoutes.justifyAbsence);
-        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AbsenceDetailsPage(absence: absence),
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -61,13 +62,13 @@ class AbsenceListItem extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text(
-                  '${absence.absenceId}/${absence.sessionId}',
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: statusColor,
-                  ),
-                ),
+                // Text(
+                //   'hello',
+                //   style: theme.textTheme.titleMedium?.copyWith(
+                //     fontWeight: FontWeight.bold,
+                //     color: statusColor,
+                //   ),
+                // ),
               ],
             ),
             const SizedBox(height: 12),
@@ -75,7 +76,7 @@ class AbsenceListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Status: ${absence.justificationStatus}',
+                  '${l10n.status} : ${absence.justificationStatus.toDisplayName(context)}',
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -104,8 +105,6 @@ class AbsenceListItem extends StatelessWidget {
         break;
       case AbsenceStatus.justified:
         iconData = Icons.check_circle_outline;
-      default:
-        iconData = Icons.description_outlined;
         break;
     }
 
@@ -124,6 +123,7 @@ class AbsenceListItem extends StatelessWidget {
     ThemeData theme,
     Color color,
   ) {
+    final l10n = AppLocalizations.of(context);
     if (absence.justificationStatus == AbsenceStatus.unjustified) {
       return TextButton(
         onPressed: () {
@@ -135,7 +135,7 @@ class AbsenceListItem extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
-          'Justify now >',
+          '${l10n.justifyNow} >',
           style: theme.textTheme.bodyMedium?.copyWith(
             color: theme.colorScheme.primary,
             fontWeight: FontWeight.w600,
@@ -146,6 +146,7 @@ class AbsenceListItem extends StatelessWidget {
       return TextButton(
         onPressed: () {
           // Handle see reason action
+          print('helllo');
         },
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
@@ -153,7 +154,7 @@ class AbsenceListItem extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
-          'See Reason >',
+          '${l10n.seeReason} >',
           style: theme.textTheme.bodyMedium?.copyWith(
             color: theme.colorScheme.error,
             fontWeight: FontWeight.w600,
@@ -171,7 +172,7 @@ class AbsenceListItem extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
-          'Review >',
+          '${l10n.review} >',
           style: theme.textTheme.bodyMedium?.copyWith(
             color: Colors.amber[700],
             fontWeight: FontWeight.w600,

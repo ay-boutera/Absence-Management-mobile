@@ -1,3 +1,6 @@
+import 'package:abs/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
+
 enum UserRole {
   student,
   teacher;
@@ -13,6 +16,26 @@ enum UserRole {
   }
 }
 
-enum AbsenceStatus { unjustified, rejected, pending, justified }
+enum AbsenceStatus {
+  unjustified,
+  rejected,
+  pending,
+  justified;
+
+  String toDisplayName(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
+    switch (this) {
+      case AbsenceStatus.unjustified:
+        return l10n.unjustified;
+      case AbsenceStatus.rejected:
+        return l10n.rejected;
+      case AbsenceStatus.pending:
+        return l10n.pending;
+      case AbsenceStatus.justified:
+        return l10n.justified;
+    }
+  }
+}
 
 enum DocumentType { none, pdf, png, jpeg, jpg }

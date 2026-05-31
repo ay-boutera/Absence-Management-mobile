@@ -355,4 +355,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notRegistered => 'غير مسجل';
+
+  @override
+  String get status => 'الحالة';
+
+  @override
+  String get unjustified => 'غير مبرر';
+
+  @override
+  String get rejected => 'مرفوض';
+
+  @override
+  String get pending => 'قيد الانتظار';
+
+  @override
+  String get justified => 'مبرر';
 }

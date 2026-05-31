@@ -353,4 +353,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notRegistered => 'Not registered';
+
+  @override
+  String get status => 'Status';
+
+  @override
+  String get unjustified => 'Unjustified';
+
+  @override
+  String get rejected => 'Rejected';
+
+  @override
+  String get pending => 'Pending';
+
+  @override
+  String get justified => 'Justified';
 }
