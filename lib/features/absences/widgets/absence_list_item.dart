@@ -1,8 +1,10 @@
 import 'package:abs/config/constants/enums.dart';
 import 'package:abs/core/entities/Absence_entity.dart';
 import 'package:abs/features/absence_details/screens/absence_details_page.dart';
+import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class AbsenceListItem extends StatelessWidget {
@@ -22,7 +24,10 @@ class AbsenceListItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => AbsenceDetailsPage(absence: absence),
+            builder: (_) => BlocProvider.value(
+              value: context.read<MyAbsenceCubit>(),
+              child: AbsenceDetailsPage(absence: absence),
+            ),
           ),
         );
       },

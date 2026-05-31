@@ -78,6 +78,18 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
   }
 
   Future<void> submitJustification(Justification justification) async {
+    // Keep existing data visible while submitting
+    if (state is MyAbsenceSuccess) {
+      final current = state as MyAbsenceSuccess;
+      emit(
+        MyAbsenceSubmitting(
+          absences: current.absences,
+          modulesStats: current.modulesStats,
+          attendanceRate: current.attendanceRate,
+        ),
+      );
+    }
+
     try {
       const storage = FlutterSecureStorage();
       final token = (await storage.read(key: 'access_token'))?.trim();
@@ -102,11 +114,9 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
             'access_token=$token; refresh_token=$refreshToken; csrf_token=$csrfToken',
       });
 
-      // Required fields
       request.fields['scope_type'] = justification.scopeType;
       request.fields['reason'] = justification.reason;
 
-      // Conditional fields
       if (justification.absenceId != null) {
         request.fields['absence_id'] = justification.absenceId!;
       }
@@ -120,16 +130,11 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
         request.fields['end_date'] = justification.endDate!;
       }
 
-      // 1. Look up the mime type from the file path.
-      // Fallback to a default binary stream if it can't figure it out.
       final mimeType =
           lookupMimeType(justification.documentPath) ??
           'application/octet-stream';
-
-      // 2. Split it into the primary type and subtype (e.g., 'image' and 'jpeg')
       final mimeParts = mimeType.split('/');
 
-      // 3. Add the file to the request
       request.files.add(
         await http.MultipartFile.fromPath(
           'document',
@@ -142,7 +147,6 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
       final response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 201) {
-        // Re-fetch absences to reflect the new justification
         await getAbsences();
       } else if (response.statusCode == 409) {
         emit(
@@ -164,5 +168,5 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
     } catch (e) {
       emit(MyAbsenceError(message: e.toString()));
     }
-  }
+  } 
 }

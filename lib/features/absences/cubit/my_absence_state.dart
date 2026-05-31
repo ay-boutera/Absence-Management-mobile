@@ -11,6 +11,21 @@ final class MyAbsenceInitial extends MyAbsenceState {}
 
 final class MyAbsenceLoading extends MyAbsenceState {}
 
+final class MyAbsenceSubmitting extends MyAbsenceState {
+  final List<AbsenceItem> absences;
+  final List<ModuleStats> modulesStats;
+  final double attendanceRate;
+
+  const MyAbsenceSubmitting({
+    required this.absences,
+    required this.modulesStats,
+    required this.attendanceRate,
+  });
+
+  @override
+  List<Object> get props => [absences, modulesStats, attendanceRate];
+}
+
 final class MyAbsenceSuccess extends MyAbsenceState {
   final List<AbsenceItem> absences;
   final List<ModuleStats> modulesStats;

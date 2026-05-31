@@ -42,6 +42,7 @@ class _JustifyAbsencePageState extends State<JustifyAbsencePage> {
       reason: _selectedReason,
       absenceId: widget.absence.absenceId,
       documentPath: _uploadedDocumentPath!,
+      sessionId: widget.absence.sessionId,
     );
 
     context.read<MyAbsenceCubit>().submitJustification(justificationPayload);
