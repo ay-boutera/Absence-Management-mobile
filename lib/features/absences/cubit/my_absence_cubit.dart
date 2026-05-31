@@ -15,9 +15,10 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
     emit(MyAbsenceLoading());
     try {
       const storage = FlutterSecureStorage();
+
       final token = (await storage.read(key: 'access_token'))?.trim();
-      final csrfToken = (await storage.read(key: 'csrf_token'))?.trim();
-      final cookie = await storage.read(key: 'auth_cookie');
+      final refreshToken = await storage.read(key: 'refresh_token');
+      final csrfToken = await storage.read(key: 'csrf_token');
 
       if (token == null) {
         emit(const MyAbsenceError(message: 'No access token found'));
@@ -30,9 +31,8 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
         ),
         headers: {
           'accept': 'application/json',
-          'Authorization': 'Bearer $token',
-          'X-CSRF-Token': csrfToken ?? '',
-          if (cookie != null) 'Cookie': cookie,
+          'Cookie':
+              'access_token=$token; refresh_token=$refreshToken; csrf_token=$csrfToken',
         },
       );
 
