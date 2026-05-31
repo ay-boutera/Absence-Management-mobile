@@ -15,7 +15,9 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
     emit(MyAbsenceLoading());
     try {
       const storage = FlutterSecureStorage();
-      final token = await storage.read(key: 'access_token');
+      final token = (await storage.read(key: 'access_token'))?.trim();
+      final csrfToken = (await storage.read(key: 'csrf_token'))?.trim();
+      final cookie = await storage.read(key: 'auth_cookie');
 
       if (token == null) {
         emit(const MyAbsenceError(message: 'No access token found'));
@@ -29,8 +31,14 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
         headers: {
           'accept': 'application/json',
           'Authorization': 'Bearer $token',
+          'X-CSRF-Token': csrfToken ?? '',
+          if (cookie != null) 'Cookie': cookie,
         },
       );
+
+      print('Status: ${response.statusCode}');
+      print('Headers sent: Authorization: Bearer $token');
+      print('Response: ${response.body}');
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as Map<String, dynamic>;
@@ -53,6 +61,8 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
           ),
         );
       } else {
+        print('Failed to load absences: ${response.body}');
+
         emit(
           MyAbsenceError(
             message: 'Failed to load absences (${response.statusCode})',
@@ -60,6 +70,7 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
         );
       }
     } catch (e) {
+      print('Failed to load absences: $e');
       emit(MyAbsenceError(message: e.toString()));
     }
   }

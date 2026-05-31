@@ -8,14 +8,15 @@ import 'package:abs/features/absences/widgets/subject_card.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-class ManualAttendanceScreen extends StatefulWidget {
-  const ManualAttendanceScreen({super.key});
+class ModulesAttendanceScreen extends StatefulWidget {
+  const ModulesAttendanceScreen({super.key});
 
   @override
-  State<ManualAttendanceScreen> createState() => _ManualAttendanceScreenState();
+  State<ModulesAttendanceScreen> createState() =>
+      _ModulesAttendanceScreenState();
 }
 
-class _ManualAttendanceScreenState extends State<ManualAttendanceScreen> {
+class _ModulesAttendanceScreenState extends State<ModulesAttendanceScreen> {
   int _selectedSemester = 0;
 
   List<SubjectAttendanceEntity> _subjectsForSemester(

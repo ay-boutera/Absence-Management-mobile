@@ -1,4 +1,5 @@
 import 'package:abs/config/theme/theme_cubit.dart';
+import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:abs/features/auth/cubit/auth_cubit.dart';
 import 'package:abs/features/home/cubit/home_cubit.dart';
 import 'package:abs/l10n/locale_cubit.dart';
@@ -28,5 +29,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => ThemeCubit(sl()));
   sl.registerLazySingleton(AuthCubit.new);
   sl.registerLazySingleton(() => LocaleCubit(sl()));
-  sl.registerLazySingleton(HomeCubit.new);
+  sl.registerFactory(HomeCubit.new);
+  sl.registerLazySingleton(MyAbsenceCubit.new);
 }

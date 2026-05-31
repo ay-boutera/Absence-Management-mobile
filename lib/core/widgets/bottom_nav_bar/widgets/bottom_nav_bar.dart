@@ -1,7 +1,8 @@
 import 'package:abs/config/constants/app_assets.dart';
 import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/core/widgets/bottom_nav_bar/widgets/nav_icon.dart';
-import 'package:abs/features/absences/screens/manual_attendance_screen.dart';
+import 'package:abs/features/absences/screens/absences_provider.dart';
+import 'package:abs/features/absences/screens/modules_attendance_screen.dart';
 import 'package:abs/features/home/screens/home_page.dart';
 import 'package:abs/features/absences/screens/my_absence.dart';
 import 'package:abs/features/profile/screens/profile_screen.dart';
@@ -64,8 +65,8 @@ class _BottomNavBarView extends StatelessWidget {
     // Exactly 4 screens for exactly 4 nav items
     final List<Widget> screens = [
       HomeProvider(user: userEntity), // index 0
-      const MyAbsenceScreen(), // index 1
-      const ManualAttendanceScreen(), // index 2
+      const AbsencesProvider(child: MyAbsenceScreen()), // index 1
+      const AbsencesProvider(child: ModulesAttendanceScreen()), // index 2
       ProfileScreen(user: userEntity), // index 3
     ];
 
