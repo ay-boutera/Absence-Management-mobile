@@ -168,5 +168,5 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
     } catch (e) {
       emit(MyAbsenceError(message: e.toString()));
     }
-  } 
+  }
 }

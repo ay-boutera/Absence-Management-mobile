@@ -20,7 +20,6 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       const storage = FlutterSecureStorage();
       final token = await storage.read(key: 'access_token');
-      print(token);
 
       if (token == null) {
         emit(const HomeError(message: 'No access token found'));

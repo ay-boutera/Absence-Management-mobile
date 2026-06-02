@@ -78,9 +78,9 @@ class HomePage extends StatelessWidget {
                         return ClassCard(
                           title: session.subject,
                           teacher: session.teachers.isNotEmpty
-                              ? '${session.teachers.first.firstName} ${session.teachers.first.lastName}'
+                              ? '${session.teachers.first.firstName.toTitleCase()} ${session.teachers.first.lastName.toTitleCase()}'
                               : l10n.notRegistered,
-                          room: session.room,
+                          room: session.room ?? l10n.notRegistered,
                           time: '${session.timeStart} - ${session.timeEnd}',
                         );
                       })),
@@ -127,5 +127,12 @@ class HomePage extends StatelessWidget {
               ),
             ),
           );
+  }
+}
+
+extension StringCapitalization on String {
+  String toTitleCase() {
+    if (isEmpty) return '';
+    return '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
   }
 }

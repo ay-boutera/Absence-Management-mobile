@@ -71,16 +71,17 @@ class ClassCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  // ✅ Clip teacher name too — can be long
-                  Text(
-                    teacher,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w500,
+                  // Clip teacher name too — can be long
+                  if (teacher.isNotEmpty)
+                    Text(
+                      teacher,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  // ✅ Clip room as well
+                  // Clip room as well
                   Text(
                     room,
                     overflow: TextOverflow.ellipsis,

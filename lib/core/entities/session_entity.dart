@@ -8,7 +8,7 @@ class SessionEntity extends Equatable {
   final String timeEnd;
   final String type;
   final String subject;
-  final String room;
+  final String? room;
   final String? group;
   final String year;
   final String? section;
@@ -23,7 +23,7 @@ class SessionEntity extends Equatable {
     required this.timeEnd,
     required this.type,
     required this.subject,
-    required this.room,
+    this.room,
     this.group,
     required this.year,
     this.section,
@@ -51,18 +51,18 @@ class SessionEntity extends Equatable {
 
   factory SessionEntity.fromJson(Map<String, dynamic> json) {
     return SessionEntity(
-      id: json['id'] as String,
-      day: json['day'] as String,
-      timeStart: json['time_start'] as String,
-      timeEnd: json['time_end'] as String,
-      type: json['type'] as String,
-      subject: json['subject'] as String,
-      room: json['room'] as String,
-      group: json['group'] as String?,
-      year: json['year'] as String,
-      section: json['section'] as String?,
-      speciality: json['speciality'] as String?,
-      semester: json['semester'] as String,
+      id: json['id'] ?? 0,
+      day: json['day'] ?? "",
+      timeStart: json['time_start'] ?? "",
+      timeEnd: json['time_end'] ?? "",
+      type: json['type'] ?? "",
+      subject: json['subject'] ?? "",
+      room: json['room'] ?? "",
+      group: json['group'] ?? "",
+      year: json['year'] ?? "",
+      section: json['section'] ?? "",
+      speciality: json['speciality'] ?? "",
+      semester: json['semester'] ?? "",
       teachers:
           (json['teachers'] as List<dynamic>?)
               ?.map(
