@@ -88,7 +88,7 @@ class AuthCubit extends Cubit<AuthState> {
           'Accept': 'application/json',
         },
         body: jsonEncode({
-          'identifier': 'brahmi.ilyes@esi-sba.dz',
+          'identifier': 'ilyess.brahmi@esi-sba.dz',
           'password': 'ExampleAuth1!',
         }),
       );
@@ -112,15 +112,7 @@ class AuthCubit extends Cubit<AuthState> {
           }
         }
 
-        // THIS IS SO FUCKED UP BUT IT WORKS
-
         await initApp();
-
-        // final data = jsonDecode(response.body) as Map<String, dynamic>;
-        // print('Data: $data');
-        // final user = UserEntity.fromJson(data);
-
-        // emit(AuthSuccess(user: user));
       } else if (response.statusCode == 422) {
         final data = jsonDecode(response.body);
         final errors = data['detail'] as List;
