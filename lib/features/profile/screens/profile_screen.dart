@@ -101,6 +101,21 @@ class ProfileScreen extends StatelessWidget {
 
                           CustomDivider(),
                           ListItem(
+                            icon: Icons.group_add,
+                            title: l10n.attendanceWithAnotherGroup,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChangePasswordScreen(),
+                                ),
+                              );
+                            },
+                            hasChevron: true,
+                          ),
+  
+                          CustomDivider(),
+                          ListItem(
                             icon: Icons.lock_outline,
                             title: l10n.changePassword,
                             onTap: () {

@@ -50,6 +50,8 @@ class HomeCubit extends Cubit<HomeState> {
             .toList();
 
         emit(HomeLoadedSuccess(sessions: today));
+      } else if (response.statusCode == 500) {
+        emit(const HomeLoadedSuccess(sessions: []));
       } else {
         emit(
           HomeError(

@@ -148,5 +148,6 @@
   "success":"نجاح",
   "scanQrCodeTitle": "مسح رمز QR",
   "scanQrCodeSubtitle": "وجّه الكاميرا نحو رمز QR لمسحه",
-  "noAbsences": "لا توجد غيابات"
+  "noAbsences": "لا توجد غيابات",
+  "attendanceWithAnotherGroup":"الحضور في مجموعة أخرى"
 }

@@ -961,6 +961,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No absences'**
   String get noAbsences;
+
+  /// No description provided for @attendanceWithAnotherGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Attend with another group'**
+  String get attendanceWithAnotherGroup;
 }
 
 class _AppLocalizationsDelegate

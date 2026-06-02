@@ -7,6 +7,7 @@ import 'package:abs/features/notifications/screens/notifications_screen.dart';
 import 'package:abs/features/notifications/cubit/notification_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key, required this.user});
@@ -16,16 +17,17 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
+    final colorScheme = theme.colorScheme;
 
     return Row(
       children: [
         ClipOval(
-          child: Image.asset(
-            AppAssets.profile,
+          child: SvgPicture.asset(
+            AppAssets.logo,
             width: 48,
             height: 48,
             fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(colorScheme.primary, BlendMode.srcIn),
           ),
         ),
         const SizedBox(width: 12),
@@ -39,7 +41,9 @@ class Header extends StatelessWidget {
             ),
             Text(
               "${user.level} student (${user.group})",
-              style: AppTextStyles.bodyMedium.copyWith(color: colors.primary),
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: colorScheme.primary,
+              ),
             ),
           ],
         ),
@@ -70,7 +74,7 @@ class Header extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.notifications_none_outlined,
-                    color: colors.primary,
+                    color: colorScheme.primary,
                   ),
                   if (unreadCount > 0)
                     Positioned(

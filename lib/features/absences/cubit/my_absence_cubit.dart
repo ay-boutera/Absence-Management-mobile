@@ -191,6 +191,8 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
       final response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 201) {
+        emit(MyAbsenceLoading());
+
         final int currentAbsenceIndex = _allAbsences.indexWhere(
           (absence) => absence.absenceId == justification.absenceId,
         );

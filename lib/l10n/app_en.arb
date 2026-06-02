@@ -149,5 +149,6 @@
   "success":"Success",
   "scanQrCodeTitle": "Scan QR Code",
   "scanQrCodeSubtitle": "Point your camera at a QR code to scan",
-  "noAbsences": "No absences"
+  "noAbsences": "No absences",
+  "attendanceWithAnotherGroup":"Attend with another group"
 } 

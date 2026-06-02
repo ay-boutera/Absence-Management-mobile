@@ -463,4 +463,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noAbsences => 'لا توجد غيابات';
+
+  @override
+  String get attendanceWithAnotherGroup => 'الحضور في مجموعة أخرى';
 }

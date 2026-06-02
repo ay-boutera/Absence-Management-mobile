@@ -461,4 +461,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noAbsences => 'No absences';
+
+  @override
+  String get attendanceWithAnotherGroup => 'Attend with another group';
 }
