@@ -943,6 +943,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Success'**
   String get success;
+
+  /// No description provided for @scanQrCodeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR Code'**
+  String get scanQrCodeTitle;
+
+  /// No description provided for @scanQrCodeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Point your camera at a QR code to scan'**
+  String get scanQrCodeSubtitle;
+
+  /// No description provided for @noAbsences.
+  ///
+  /// In en, this message translates to:
+  /// **'No absences'**
+  String get noAbsences;
 }
 
 class _AppLocalizationsDelegate

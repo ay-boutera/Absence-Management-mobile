@@ -1,8 +1,8 @@
+import 'package:abs/config/theme/app_text_styles.dart';
 import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:abs/features/absences/widgets/absence_list.dart';
 import 'package:abs/features/absences/widgets/absences_header.dart';
 import 'package:abs/features/absences/widgets/filter_tabs.dart';
-import 'package:abs/features/absences/widgets/total_absences_card.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,11 +21,12 @@ class MyAbsenceScreen extends StatelessWidget {
         child: Column(
           children: [
             const AbsencesHeader(),
-            TotalAbsencesCard(
-              title: l10n.totalAbsences,
-              subtitle: l10n.semester1,
-              percentage: 0.7,
-            ),
+            // TotalAbsencesCard(
+            //   title: l10n.totalAbsences,
+            //   subtitle: l10n.semester1,
+            //   percentage: 0.7,
+            // ),
+            SizedBox(height: 16),
             FilterTabs(
               labels: [
                 l10n.filterAll,
@@ -38,6 +39,29 @@ class MyAbsenceScreen extends StatelessWidget {
             BlocBuilder<MyAbsenceCubit, MyAbsenceState>(
               builder: (context, state) {
                 if (state is MyAbsenceSuccess) {
+                  if (state.absences.isEmpty) {
+                    return Center(
+                      child: Container(
+                        height: 200,
+                        width: 200,
+                        padding: EdgeInsets.only(top: 120),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surface,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              l10n.noAbsences,
+                              style: AppTextStyles.h1.copyWith(
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
                   return AbsenceList(absences: state.absences);
                 }
                 if (state is MyAbsenceError) {

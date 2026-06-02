@@ -145,6 +145,8 @@
   "anErrorOccurred":"حدث خطأ",
   "ok":"حسناً",
   "error":"خطأ",
-  "success":"نجاح"
-  
+  "success":"نجاح",
+  "scanQrCodeTitle": "مسح رمز QR",
+  "scanQrCodeSubtitle": "وجّه الكاميرا نحو رمز QR لمسحه",
+  "noAbsences": "لا توجد غيابات"
 }

@@ -454,4 +454,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get success => 'نجاح';
+
+  @override
+  String get scanQrCodeTitle => 'مسح رمز QR';
+
+  @override
+  String get scanQrCodeSubtitle => 'وجّه الكاميرا نحو رمز QR لمسحه';
+
+  @override
+  String get noAbsences => 'لا توجد غيابات';
 }

@@ -146,6 +146,8 @@
   "anErrorOccurred":"An error occurred",
   "ok":"Ok",
   "error":"Error",
-  "success":"Success"
-  
+  "success":"Success",
+  "scanQrCodeTitle": "Scan QR Code",
+  "scanQrCodeSubtitle": "Point your camera at a QR code to scan",
+  "noAbsences": "No absences"
 } 

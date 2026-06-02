@@ -452,4 +452,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get success => 'Success';
+
+  @override
+  String get scanQrCodeTitle => 'Scan QR Code';
+
+  @override
+  String get scanQrCodeSubtitle => 'Point your camera at a QR code to scan';
+
+  @override
+  String get noAbsences => 'No absences';
 }

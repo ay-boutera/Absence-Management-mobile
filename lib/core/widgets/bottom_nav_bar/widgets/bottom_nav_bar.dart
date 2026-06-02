@@ -6,6 +6,7 @@ import 'package:abs/features/absences/screens/modules_attendance_screen.dart';
 import 'package:abs/features/home/screens/home_page.dart';
 import 'package:abs/features/absences/screens/my_absence.dart';
 import 'package:abs/features/profile/screens/profile_screen.dart';
+import 'package:abs/features/qr_scanner/screens/qr_scanner_page.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -88,11 +89,9 @@ class _BottomNavBarView extends StatelessWidget {
 
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                builder: (context) => const TestScreen(''),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QRScannerScreen()),
               );
             },
             shape: const CircleBorder(),
