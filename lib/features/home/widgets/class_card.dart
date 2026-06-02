@@ -1,5 +1,7 @@
+import 'package:abs/core/widgets/bottom_nav_bar/cubit/nav_bar_cubit.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ClassCard extends StatelessWidget {
   final String title;
@@ -112,7 +114,7 @@ class ClassCard extends StatelessWidget {
                     width: double.infinity,
                     child: FilledButton(
                       onPressed: () {
-                        //TODO: Navigate to scanner page
+                        context.read<NavBarCubit>().onNavTap(4);
                       },
                       style: FilledButton.styleFrom(
                         // ✅ Tighter padding so label fits within the fixed width

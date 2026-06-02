@@ -191,12 +191,12 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
       final response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 201) {
-        print('WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
         final int currentAbsenceIndex = _allAbsences.indexWhere(
           (absence) => absence.absenceId == justification.absenceId,
         );
 
         if (currentAbsenceIndex != -1) {
+          // 1. Mutate the item locally
           _allAbsences[currentAbsenceIndex] = _allAbsences[currentAbsenceIndex]
               .copyWith(justificationStatus: AbsenceStatus.pending);
         }
@@ -207,7 +207,7 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
 
         emit(
           MyAbsenceSuccess(
-            absences: _allAbsences,
+            absences: List.from(_allAbsences),
             modulesStats: firstSemester,
             attendanceRate: _attendanceRate,
           ),

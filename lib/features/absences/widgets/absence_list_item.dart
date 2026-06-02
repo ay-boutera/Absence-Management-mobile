@@ -5,7 +5,7 @@ import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' hide TextDirection;
 
 class AbsenceListItem extends StatelessWidget {
   final AbsenceEntity absence;
@@ -42,39 +42,42 @@ class AbsenceListItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Row(
-              children: [
-                _buildIcon(theme, statusColor),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        absence.moduleName,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: statusColor,
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Row(
+                children: [
+                  _buildIcon(theme, statusColor),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          absence.moduleName,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: statusColor,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        dateFormat.format(absence.date),
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
+                        const SizedBox(height: 4),
+                        Text(
+                          dateFormat.format(absence.date),
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                // Text(
-                //   'hello',
-                //   style: theme.textTheme.titleMedium?.copyWith(
-                //     fontWeight: FontWeight.bold,
-                //     color: statusColor,
-                //   ),
-                // ),
-              ],
+                  // Text(
+                  //   'hello',
+                  //   style: theme.textTheme.titleMedium?.copyWith(
+                  //     fontWeight: FontWeight.bold,
+                  //     color: statusColor,
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
             const SizedBox(height: 12),
             Row(

@@ -6,7 +6,6 @@ import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/features/notifications/screens/notifications_screen.dart';
 // import 'package:abs/features/notifications/screens/notifications_screen';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key, required this.user});
@@ -52,12 +51,7 @@ class Header extends StatelessWidget {
               ),
             );
           },
-          child: SvgPicture.asset(
-            AppAssets.logo,
-            colorFilter: ColorFilter.mode(colors.primary, BlendMode.srcIn),
-            height: 48,
-            width: 48,
-          ),
+          child: Icon(Icons.notifications_none_outlined, color: colors.primary),
         ),
       ],
     );
