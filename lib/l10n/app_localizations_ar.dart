@@ -379,4 +379,79 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get filterJustified => 'مبرر';
+
+  @override
+  String get absences => 'غياباتي';
+
+  @override
+  String get enterYourInformation => 'أدخل معلوماتك';
+
+  @override
+  String get currentPassword => 'كلمة المرور الحالية';
+
+  @override
+  String get newPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get confirmNewPassword => 'تأكيد كلمة المرور الجديدة';
+
+  @override
+  String get oldPasswordHint => 'أدخل كلمة المرور القديمة';
+
+  @override
+  String get newPasswordHint => 'أدخل كلمة المرور الجديدة';
+
+  @override
+  String get confirmPasswordHint => 'تأكيد كلمة المرور الجديدة';
+
+  @override
+  String get passwordMustBeAtLeast8Characters =>
+      'يجب أن تكون كلمة المرور 8 أحرف على الأقل';
+
+  @override
+  String get passwordMustContainAtLeastOneUppercaseLetter =>
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل';
+
+  @override
+  String get passwordMustContainAtLeastOneLowercaseLetter =>
+      'يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل';
+
+  @override
+  String get passwordMustContainAtLeastOneNumber =>
+      'يجب أن تحتوي كلمة المرور على رقم واحد على الأقل';
+
+  @override
+  String get passwordMustContainAtLeastOneSpecialCharacter =>
+      'يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل';
+
+  @override
+  String get pleaseFillInAllFields => 'يرجى ملء جميع الحقول';
+
+  @override
+  String get newPasswordsDoNotMatch => 'كلمات المرور الجديدة غير متطابقة';
+
+  @override
+  String get noAccessTokenFound => 'لم يتم العثور على رمز الوصول';
+
+  @override
+  String get passwordChangedSuccessfully => 'تم تغيير كلمة المرور بنجاح';
+
+  @override
+  String get invalidInputPleaseCheckYourFields =>
+      'إدخال غير صالح. يرجى التحقق من الحقول.';
+
+  @override
+  String get failedToChangePassword => 'فشل تغيير كلمة المرور';
+
+  @override
+  String get anErrorOccurred => 'حدث خطأ';
+
+  @override
+  String get ok => 'حسناً';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get success => 'نجاح';
 }

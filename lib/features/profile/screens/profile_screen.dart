@@ -2,6 +2,7 @@ import 'package:abs/config/theme/app_text_styles.dart';
 import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/core/helpers/get_year_helper.dart';
 import 'package:abs/features/auth/cubit/auth_cubit.dart';
+import 'package:abs/features/change_password.dart/screens/change_password_screen.dart';
 import 'package:abs/features/profile/helpers/change_language_bottom_sheet.dart';
 import 'package:abs/features/profile/helpers/change_theme_bottom_sheet.dart';
 import 'package:abs/features/profile/screens/personel_info.dart';
@@ -100,8 +101,16 @@ class ProfileScreen extends StatelessWidget {
 
                           CustomDivider(),
                           ListItem(
-                            icon: Icons.insert_chart_outlined,
-                            title: l10n.attendancePerformance,
+                            icon: Icons.lock_outline,
+                            title: l10n.changePassword,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChangePasswordScreen(),
+                                ),
+                              );
+                            },
                             hasChevron: true,
                           ),
                         ],

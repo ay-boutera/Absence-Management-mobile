@@ -65,7 +65,7 @@ class _ModulesAttendanceScreenState extends State<ModulesAttendanceScreen> {
                             onChanged: (index) =>
                                 setState(() => _selectedSemester = index),
                           ),
-                          const SizedBox(height: 8),
+                        const SizedBox(height: 8),
                           ...subjects.map(
                             (subject) => SubjectCard(
                               title: subject.moduleName,

@@ -805,6 +805,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Justified'**
   String get filterJustified;
+
+  /// No description provided for @absences.
+  ///
+  /// In en, this message translates to:
+  /// **'Absences'**
+  String get absences;
+
+  /// No description provided for @enterYourInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your information'**
+  String get enterYourInformation;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'currentPassword'**
+  String get currentPassword;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'newPassword'**
+  String get newPassword;
+
+  /// No description provided for @confirmNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'confirmNewPassword'**
+  String get confirmNewPassword;
+
+  /// No description provided for @oldPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your old password'**
+  String get oldPasswordHint;
+
+  /// No description provided for @newPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your new password'**
+  String get newPasswordHint;
+
+  /// No description provided for @confirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your new password'**
+  String get confirmPasswordHint;
+
+  /// No description provided for @passwordMustBeAtLeast8Characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get passwordMustBeAtLeast8Characters;
+
+  /// No description provided for @passwordMustContainAtLeastOneUppercaseLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one uppercase letter'**
+  String get passwordMustContainAtLeastOneUppercaseLetter;
+
+  /// No description provided for @passwordMustContainAtLeastOneLowercaseLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one lowercase letter'**
+  String get passwordMustContainAtLeastOneLowercaseLetter;
+
+  /// No description provided for @passwordMustContainAtLeastOneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one number'**
+  String get passwordMustContainAtLeastOneNumber;
+
+  /// No description provided for @passwordMustContainAtLeastOneSpecialCharacter.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one special character'**
+  String get passwordMustContainAtLeastOneSpecialCharacter;
+
+  /// No description provided for @pleaseFillInAllFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill in all fields'**
+  String get pleaseFillInAllFields;
+
+  /// No description provided for @newPasswordsDoNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'New passwords do not match'**
+  String get newPasswordsDoNotMatch;
+
+  /// No description provided for @noAccessTokenFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No access token found'**
+  String get noAccessTokenFound;
+
+  /// No description provided for @passwordChangedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed successfully'**
+  String get passwordChangedSuccessfully;
+
+  /// No description provided for @invalidInputPleaseCheckYourFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid input. Please check your fields.'**
+  String get invalidInputPleaseCheckYourFields;
+
+  /// No description provided for @failedToChangePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to change password'**
+  String get failedToChangePassword;
+
+  /// No description provided for @anErrorOccurred.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred'**
+  String get anErrorOccurred;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'Ok'**
+  String get ok;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
 }
 
 class _AppLocalizationsDelegate

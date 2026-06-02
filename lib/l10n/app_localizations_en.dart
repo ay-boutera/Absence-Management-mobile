@@ -377,4 +377,79 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get filterJustified => 'Justified';
+
+  @override
+  String get absences => 'Absences';
+
+  @override
+  String get enterYourInformation => 'Enter your information';
+
+  @override
+  String get currentPassword => 'currentPassword';
+
+  @override
+  String get newPassword => 'newPassword';
+
+  @override
+  String get confirmNewPassword => 'confirmNewPassword';
+
+  @override
+  String get oldPasswordHint => 'Enter your old password';
+
+  @override
+  String get newPasswordHint => 'Enter your new password';
+
+  @override
+  String get confirmPasswordHint => 'Confirm your new password';
+
+  @override
+  String get passwordMustBeAtLeast8Characters =>
+      'Password must be at least 8 characters';
+
+  @override
+  String get passwordMustContainAtLeastOneUppercaseLetter =>
+      'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordMustContainAtLeastOneLowercaseLetter =>
+      'Password must contain at least one lowercase letter';
+
+  @override
+  String get passwordMustContainAtLeastOneNumber =>
+      'Password must contain at least one number';
+
+  @override
+  String get passwordMustContainAtLeastOneSpecialCharacter =>
+      'Password must contain at least one special character';
+
+  @override
+  String get pleaseFillInAllFields => 'Please fill in all fields';
+
+  @override
+  String get newPasswordsDoNotMatch => 'New passwords do not match';
+
+  @override
+  String get noAccessTokenFound => 'No access token found';
+
+  @override
+  String get passwordChangedSuccessfully => 'Password changed successfully';
+
+  @override
+  String get invalidInputPleaseCheckYourFields =>
+      'Invalid input. Please check your fields.';
+
+  @override
+  String get failedToChangePassword => 'Failed to change password';
+
+  @override
+  String get anErrorOccurred => 'An error occurred';
+
+  @override
+  String get ok => 'Ok';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get success => 'Success';
 }

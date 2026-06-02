@@ -54,7 +54,7 @@ class _BottomNavBarView extends StatelessWidget {
 
   List<String> _getLabels(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return [l10n.home, l10n.schedule, l10n.attendance, l10n.more];
+    return [l10n.home, l10n.absences, l10n.attendance, l10n.more];
   }
 
   @override
@@ -75,7 +75,7 @@ class _BottomNavBarView extends StatelessWidget {
       AppAssets.schedule,
       AppAssets.attendance,
       AppAssets.more,
-    ]; // also 4 items — matches screens
+    ];
 
     return BlocBuilder<NavBarCubit, NavBarState>(
       builder: (context, state) {

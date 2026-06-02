@@ -2,7 +2,6 @@ import 'package:abs/features/auth/pages/login_page.dart';
 import 'package:abs/features/auth/pages/splash_screen.dart';
 import 'package:abs/features/justify_absence/screens/exam_schedule_page.dart';
 import 'package:abs/features/absences/screens/my_absence.dart';
-import 'package:abs/features/student_dashboard/presentation/pages/student_dashboard_page.dart';
 import 'package:abs/shared/screens/error_screen.dart';
 import 'package:abs/shared/screens/loading_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +15,6 @@ class RouteGenerator {
 
       case AppRoutes.login:
         return MaterialPageRoute(builder: (_) => const LoginPage());
-
-      case AppRoutes.studentDashboard:
-        return MaterialPageRoute(builder: (_) => const StudentDashboardPage());
 
       case AppRoutes.loading:
         return MaterialPageRoute(builder: (_) => const LoadingScreen());

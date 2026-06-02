@@ -123,5 +123,29 @@
   "justified":"Justified",
   "familyEmergency":"Family Emergency",
   "other":"Other",
-  "filterJustified": "Justified"
-}
+  "filterJustified": "Justified",
+  "absences": "Absences",
+  "enterYourInformation": "Enter your information",
+  "currentPassword":"currentPassword",
+  "newPassword":"newPassword",
+  "confirmNewPassword":"confirmNewPassword",
+  "oldPasswordHint": "Enter your old password",
+  "newPasswordHint": "Enter your new password",
+  "confirmPasswordHint": "Confirm your new password",
+  "passwordMustBeAtLeast8Characters":"Password must be at least 8 characters",
+  "passwordMustContainAtLeastOneUppercaseLetter":"Password must contain at least one uppercase letter",
+  "passwordMustContainAtLeastOneLowercaseLetter":"Password must contain at least one lowercase letter",
+  "passwordMustContainAtLeastOneNumber":"Password must contain at least one number",
+  "passwordMustContainAtLeastOneSpecialCharacter":"Password must contain at least one special character",
+  "pleaseFillInAllFields":"Please fill in all fields",
+  "newPasswordsDoNotMatch":"New passwords do not match",
+  "noAccessTokenFound":"No access token found",
+  "passwordChangedSuccessfully":"Password changed successfully",
+  "invalidInputPleaseCheckYourFields":"Invalid input. Please check your fields.",
+  "failedToChangePassword":"Failed to change password",
+  "anErrorOccurred":"An error occurred",
+  "ok":"Ok",
+  "error":"Error",
+  "success":"Success"
+  
+} 
