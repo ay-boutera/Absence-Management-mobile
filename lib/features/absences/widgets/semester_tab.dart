@@ -1,5 +1,8 @@
+import 'package:abs/config/constants/enums.dart';
+import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:abs/features/absences/widgets/semester_tab_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SemesterTab extends StatelessWidget {
   const SemesterTab({
@@ -38,12 +41,22 @@ class SemesterTab extends StatelessWidget {
           SemesterTabItem(
             label: label1,
             isSelected: selectedIndex == 0,
-            onTap: () => onChanged(0),
+            onTap: () {
+              onChanged(0);
+              context.read<MyAbsenceCubit>().filterAbsencesBySemester(
+                Semester.S1,
+              );
+            },
           ),
           SemesterTabItem(
             label: label2,
             isSelected: selectedIndex == 1,
-            onTap: () => onChanged(1),
+            onTap: () {
+              onChanged(1);
+              context.read<MyAbsenceCubit>().filterAbsencesBySemester(
+                Semester.S2,
+              );
+            },
           ),
         ],
       ),

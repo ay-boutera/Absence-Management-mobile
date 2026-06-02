@@ -1,7 +1,7 @@
 import 'package:abs/config/constants/enums.dart';
 import 'package:flutter/material.dart';
 
-class AbsenceItem {
+class AbsenceEntity {
   final String absenceId;
   final String sessionId;
   final DateTime date;
@@ -15,7 +15,7 @@ class AbsenceItem {
   final bool isOwnGroup;
   final bool isCrossSession;
 
-  AbsenceItem({
+  AbsenceEntity({
     required this.absenceId,
     required this.sessionId,
     required this.date,
@@ -56,8 +56,8 @@ class AbsenceItem {
     }
   }
 
-  factory AbsenceItem.fromJson(Map<String, dynamic> json) {
-    return AbsenceItem(
+  factory AbsenceEntity.fromJson(Map<String, dynamic> json) {
+    return AbsenceEntity(
       absenceId: json['absence_id'] as String,
       sessionId: json['session_id'] as String,
       date: DateTime.parse(json['date'] as String),
@@ -72,6 +72,36 @@ class AbsenceItem {
       justificationStatus: _parseStatus(
         json['justification_status'] as String?,
       ),
+    );
+  }
+
+  AbsenceEntity copyWith({
+    String? absenceId,
+    String? sessionId,
+    DateTime? date,
+    String? startTime,
+    String? endTime,
+    String? moduleName,
+    String? teacherName,
+    bool? isAbsent,
+    AbsenceStatus? justificationStatus,
+    String? sessionGroup,
+    bool? isOwnGroup,
+    bool? isCrossSession,
+  }) {
+    return AbsenceEntity(
+      absenceId: absenceId ?? this.absenceId,
+      sessionId: sessionId ?? this.sessionId,
+      date: date ?? this.date,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime,
+      moduleName: moduleName ?? this.moduleName,
+      teacherName: teacherName ?? this.teacherName,
+      isAbsent: isAbsent ?? this.isAbsent,
+      justificationStatus: justificationStatus ?? this.justificationStatus,
+      sessionGroup: sessionGroup ?? this.sessionGroup,
+      isOwnGroup: isOwnGroup ?? this.isOwnGroup,
+      isCrossSession: isCrossSession ?? this.isCrossSession,
     );
   }
 

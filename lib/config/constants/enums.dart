@@ -39,3 +39,17 @@ enum AbsenceStatus {
 }
 
 enum DocumentType { none, pdf, png, jpeg, jpg }
+
+enum NotificationType {
+  attendanceRecorded,
+  markedAbsent,
+  justificationSubmitted,
+  justificationApproved,
+  justificationRejected,
+  classCancelled,
+  scheduleUpdated,
+}
+
+enum Scope { absence, session, range }
+
+enum Semester { S1, S2 }

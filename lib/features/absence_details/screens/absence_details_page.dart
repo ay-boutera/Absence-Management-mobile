@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 class AbsenceDetailsPage extends StatelessWidget {
   const AbsenceDetailsPage({super.key, required this.absence});
 
-  final AbsenceItem absence;
+  final AbsenceEntity absence;
 
   @override
   Widget build(BuildContext context) {

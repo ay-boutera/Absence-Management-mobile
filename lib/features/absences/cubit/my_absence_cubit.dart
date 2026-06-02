@@ -14,7 +14,7 @@ part 'my_absence_state.dart';
 class MyAbsenceCubit extends Cubit<MyAbsenceState> {
   MyAbsenceCubit() : super(MyAbsenceInitial());
 
-  List<AbsenceItem> _allAbsences = [];
+  List<AbsenceEntity> _allAbsences = [];
   List<ModuleStats> _modulesStats = [];
   double _attendanceRate = 0.0;
 
@@ -49,21 +49,31 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
         final data = jsonDecode(response.body) as Map<String, dynamic>;
 
         _allAbsences = (data['absence_history'] as List)
-            .map((json) => AbsenceItem.fromJson(json))
+            .map((json) => AbsenceEntity.fromJson(json))
+            .toList()
+            .where((absence) => absence.isAbsent == true)
             .toList();
 
         _modulesStats = (data['module_attendance'] as List)
             .map((json) => ModuleStats.fromJson(json))
             .toList();
 
+        final firstSemester = _modulesStats
+            .where((m) => m.semester == Semester.S1)
+            .toList();
+
         print(_modulesStats.length);
+
+        print('the first semester modules count');
+
+        print(firstSemester.length);
 
         _attendanceRate = data['attendance_rate'] as double;
 
         emit(
           MyAbsenceSuccess(
             absences: _allAbsences,
-            modulesStats: _modulesStats,
+            modulesStats: firstSemester,
             attendanceRate: _attendanceRate,
           ),
         );
@@ -99,18 +109,30 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
     );
   }
 
-  Future<void> submitJustification(Justification justification) async {
-    // Keep existing data visible while submitting
-    if (state is MyAbsenceSuccess) {
-      final current = state as MyAbsenceSuccess;
-      emit(
-        MyAbsenceSubmitting(
-          absences: current.absences,
-          modulesStats: current.modulesStats,
-          attendanceRate: current.attendanceRate,
-        ),
-      );
-    }
+  void filterAbsencesBySemester(Semester semester) {
+    if (state is! MyAbsenceSuccess) return;
+
+    final filteredAbsences = _modulesStats
+        .where((m) => m.semester == semester)
+        .toList();
+
+    emit(
+      MyAbsenceSuccess(
+        absences: _allAbsences,
+        modulesStats: filteredAbsences,
+        attendanceRate: _attendanceRate,
+      ),
+    );
+  }
+
+  Future<void> submitJustification(
+    Justification justification,
+    String absence_id,
+  ) async {
+    if (state is! MyAbsenceSuccess) return;
+
+    print(lookupMimeType(justification.documentPath));
+    print(justification.documentPath);
 
     try {
       const storage = FlutterSecureStorage();
@@ -169,26 +191,40 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
       final response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 201) {
-        await getAbsences();
-      } else if (response.statusCode == 409) {
+        print('WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
+        final int currentAbsenceIndex = _allAbsences.indexWhere(
+          (absence) => absence.absenceId == justification.absenceId,
+        );
+
+        if (currentAbsenceIndex != -1) {
+          _allAbsences[currentAbsenceIndex] = _allAbsences[currentAbsenceIndex]
+              .copyWith(justificationStatus: AbsenceStatus.pending);
+        }
+
+        final firstSemester = _modulesStats
+            .where((m) => m.semester == Semester.S1)
+            .toList();
+
         emit(
-          const MyAbsenceError(
-            message: 'Justification already submitted for this absence',
+          MyAbsenceSuccess(
+            absences: _allAbsences,
+            modulesStats: firstSemester,
+            attendanceRate: _attendanceRate,
           ),
         );
+      } else if (response.statusCode == 409) {
+        throw Exception('Justification already submitted for this absence');
       } else if (response.statusCode == 404) {
-        emit(const MyAbsenceError(message: 'Absence or session not found'));
+        throw Exception('Absence or session not found');
       } else if (response.statusCode == 400) {
-        emit(const MyAbsenceError(message: 'Invalid file or request data'));
+        throw Exception('Invalid file or request data');
       } else {
-        emit(
-          MyAbsenceError(
-            message: 'Failed to submit justification (${response.statusCode})',
-          ),
+        throw Exception(
+          'Failed to submit justification (${response.statusCode})',
         );
       }
     } catch (e) {
-      emit(MyAbsenceError(message: e.toString()));
+      throw Exception(e.toString());
     }
   }
 }

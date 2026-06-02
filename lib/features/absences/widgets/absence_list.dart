@@ -3,7 +3,7 @@ import 'package:abs/features/absences/widgets/absence_list_item.dart';
 import 'package:flutter/material.dart';
 
 class AbsenceList extends StatelessWidget {
-  final List<AbsenceItem> absences;
+  final List<AbsenceEntity> absences;
 
   const AbsenceList({super.key, required this.absences});
 

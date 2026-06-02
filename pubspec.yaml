@@ -42,7 +42,7 @@ dependencies:
 
   # State Management
   flutter_bloc: ^9.1.1
-  bloc: ^9.2.0
+  bloc: ^9.2.1
   equatable: ^2.0.8
 
   # Dependency Injection & Networking
@@ -65,6 +65,7 @@ dependencies:
   # Device Features (Major API changes in v7.x)
   mobile_scanner: ^7.2.0
   image_picker: ^1.2.2
+  file_picker: ^11.0.2
 
 dev_dependencies:
   flutter_test:

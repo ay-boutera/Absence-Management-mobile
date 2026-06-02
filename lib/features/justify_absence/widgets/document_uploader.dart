@@ -2,12 +2,11 @@ import 'dart:io';
 
 import 'package:abs/config/constants/app_assets.dart';
 import 'package:abs/l10n/app_localizations.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DocumentUploader extends StatefulWidget {
-  // 1. Add the callback parameter here
   const DocumentUploader({super.key, required this.onFilePicked});
 
   final ValueChanged<String?> onFilePicked;
@@ -17,29 +16,34 @@ class DocumentUploader extends StatefulWidget {
 }
 
 class _DocumentUploaderState extends State<DocumentUploader> {
-  File? _imageFile;
-  final ImagePicker _picker = ImagePicker();
+  File? _selectedFile;
+  String? _fileName;
 
-  Future<void> _pickImage() async {
-    final XFile? pickedFile = await _picker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 80,
+  Future<void> _pickFile() async {
+    final result = await FilePicker.pickFiles(
+      allowMultiple: false,
+      type: FileType.custom,
+      allowedExtensions: ['pdf'],
     );
 
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = File(pickedFile.path);
-      });
-      // 2. Pass the selected path string to the parent page form state
-      widget.onFilePicked(pickedFile.path);
+    if (result == null || result.files.single.path == null) {
+      return;
     }
+
+    setState(() {
+      _selectedFile = File(result.files.single.path!);
+      _fileName = result.files.single.name;
+    });
+
+    widget.onFilePicked(result.files.single.path);
   }
 
-  void _removeImage() {
+  void _removeFile() {
     setState(() {
-      _imageFile = null;
+      _selectedFile = null;
+      _fileName = null;
     });
-    // 3. Inform the parent page that the file was removed
+
     widget.onFilePicked(null);
   }
 
@@ -66,17 +70,17 @@ class _DocumentUploaderState extends State<DocumentUploader> {
         ),
         const SizedBox(height: 8),
         InkWell(
-          onTap: _pickImage,
+          onTap: _pickFile,
           borderRadius: BorderRadius.circular(12),
           child: Container(
             width: double.infinity,
-            padding: _imageFile == null
+            padding: _selectedFile == null
                 ? const EdgeInsets.symmetric(vertical: 24, horizontal: 8)
                 : EdgeInsets.zero,
             decoration: containerDecoration,
-            child: _imageFile == null
+            child: _selectedFile == null
                 ? _buildPlaceholder(l10n, theme)
-                : _buildImagePreview(theme),
+                : _buildFilePreview(theme),
           ),
         ),
       ],
@@ -97,7 +101,7 @@ class _DocumentUploaderState extends State<DocumentUploader> {
         ),
         const SizedBox(height: 4),
         Text(
-          l10n.fileFormatHint,
+          'PDF only • Max 5 MB',
           textAlign: TextAlign.center,
           style: theme.textTheme.bodySmall?.copyWith(
             color: theme.colorScheme.onSurfaceVariant,
@@ -107,28 +111,41 @@ class _DocumentUploaderState extends State<DocumentUploader> {
     );
   }
 
-  Widget _buildImagePreview(ThemeData theme) {
+  Widget _buildFilePreview(ThemeData theme) {
     return Stack(
-      alignment: Alignment.topRight,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.file(
-            _imageFile!,
-            height: 180,
-            width: double.infinity,
-            fit: BoxFit.cover,
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.picture_as_pdf_rounded,
+                size: 40,
+                color: Colors.red,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  _fileName ?? 'PDF Document',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         Positioned(
           top: 8,
           right: 8,
           child: GestureDetector(
-            onTap: _removeImage,
+            onTap: _removeFile,
             child: Container(
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: theme.colorScheme.errorContainer.withValues(alpha: 0.8),
+                color: theme.colorScheme.errorContainer,
                 shape: BoxShape.circle,
               ),
               child: Icon(

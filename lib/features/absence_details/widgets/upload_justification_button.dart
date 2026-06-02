@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UploadJustificationButton extends StatelessWidget {
   const UploadJustificationButton({super.key, required this.absence});
 
-  final AbsenceItem absence;
+  final AbsenceEntity absence;
 
   @override
   Widget build(BuildContext context) {

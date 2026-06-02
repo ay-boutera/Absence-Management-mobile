@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class AbsenceListItem extends StatelessWidget {
-  final AbsenceItem absence;
+  final AbsenceEntity absence;
 
   const AbsenceListItem({super.key, required this.absence});
 

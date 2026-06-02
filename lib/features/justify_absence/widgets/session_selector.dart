@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class SessionSelector extends StatelessWidget {
   const SessionSelector({super.key, required this.absence});
 
-  final AbsenceItem absence;
+  final AbsenceEntity absence;
 
   @override
   Widget build(BuildContext context) {
