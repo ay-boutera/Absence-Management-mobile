@@ -1,4 +1,3 @@
-import 'package:abs/config/constants/enums.dart';
 import 'package:abs/config/theme/app_text_styles.dart';
 import 'package:abs/core/entities/notification_item.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,9 @@ class NotificationCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
-        color: theme.surface,
+        color: item.isRead
+            ? theme.surface
+            : theme.surfaceContainerHighest.withAlpha(100),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: theme.primary.withAlpha(30), width: 1),
         boxShadow: [
@@ -51,7 +52,7 @@ class NotificationCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 4),
                         child: Text(
-                          _getLocalizedTitle(context, item.type),
+                          item.title,
                           style: AppTextStyles.h3.copyWith(
                             color: theme.onSurface,
                           ),
@@ -60,7 +61,7 @@ class NotificationCard extends StatelessWidget {
                     ),
 
                     Text(
-                      item.timeAgo, // Kept static / relative string
+                      _getTimeAgo(item.createdAt),
                       style: AppTextStyles.caption.copyWith(
                         color: Colors.grey[400],
                       ),
@@ -72,7 +73,7 @@ class NotificationCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 48, top: 8, right: 8),
                   child: Text(
-                    _getLocalizedDescription(context, item.type),
+                    item.body,
                     style: AppTextStyles.body1.copyWith(
                       color: Colors.grey[600],
                       fontSize: 14,
@@ -82,46 +83,31 @@ class NotificationCard extends StatelessWidget {
               ],
             ),
           ),
+          if (!item.isRead)
+            Positioned(
+              left: 12,
+              top: 24,
+              child: Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: theme.primary,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
         ],
       ),
     );
   }
 
-  String _getLocalizedTitle(BuildContext context, NotificationType type) {
-    switch (type) {
-      case NotificationType.attendanceRecorded:
-        return "Attendance recorded !"; // localizations.attendanceRecordedTitle
-      case NotificationType.markedAbsent:
-        return "Marked Absent !";
-      case NotificationType.justificationSubmitted:
-        return "Justification submitted";
-      case NotificationType.justificationApproved:
-        return "Justification approved";
-      case NotificationType.justificationRejected:
-        return "Justification rejected";
-      case NotificationType.classCancelled:
-        return "Class cancelled !";
-      case NotificationType.scheduleUpdated:
-        return "Schedule updated";
-    }
-  }
-
-  String _getLocalizedDescription(BuildContext context, NotificationType type) {
-    switch (type) {
-      case NotificationType.attendanceRecorded:
-        return "You have been marked present for BDD - Mr. Kazi (10:00 – 12:00)";
-      case NotificationType.markedAbsent:
-        return "You are not assigned to the session of BDD - Mr. Kazi (10:00 – 12:00)";
-      case NotificationType.justificationSubmitted:
-        return "Your document is under review.";
-      case NotificationType.justificationApproved:
-        return "Your absence for Algorithms has been validated.";
-      case NotificationType.justificationRejected:
-        return "Reason: Missing or invalid document.";
-      case NotificationType.classCancelled:
-        return "Your Networks session tomorrow at 14:00 has been cancelled.";
-      case NotificationType.scheduleUpdated:
-        return "Your Databases class has been moved to Tuesday at 10:00.";
-    }
+  String _getTimeAgo(DateTime date) {
+    final diff = DateTime.now().difference(date);
+    if (diff.inDays > 365) return '${(diff.inDays / 365).floor()}y ago';
+    if (diff.inDays > 30) return '${(diff.inDays / 30).floor()}mo ago';
+    if (diff.inDays > 0) return '${diff.inDays}d ago';
+    if (diff.inHours > 0) return '${diff.inHours}h ago';
+    if (diff.inMinutes > 0) return '${diff.inMinutes}m ago';
+    return 'Just now';
   }
 }

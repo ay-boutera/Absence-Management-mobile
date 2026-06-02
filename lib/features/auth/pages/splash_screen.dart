@@ -3,6 +3,7 @@ import 'package:abs/config/router/app_routes.dart';
 import 'package:abs/core/widgets/bottom_nav_bar/widgets/bottom_nav_bar.dart';
 import 'package:abs/features/auth/cubit/auth_cubit.dart';
 import 'package:abs/features/auth/pages/login_page.dart';
+import 'package:abs/features/notifications/cubit/notification_cubit.dart';
 import 'package:abs/features/students/presentation/pages/student_list_page.dart';
 import 'package:abs/shared/screens/loading_screen.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,11 @@ class _SplashScreenState extends State<SplashScreen> {
             AppRoutes.error,
             arguments: state.message,
           );
+        }
+
+        // Start WebSocket notifications after successful auth
+        if (state is AuthSuccess) {
+          context.read<NotificationCubit>().loadNotifications();
         }
       },
 

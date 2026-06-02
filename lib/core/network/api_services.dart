@@ -3,8 +3,10 @@ import 'package:dio/dio.dart';
 class ApiServices {
   final Dio _dio;
 
+  String get baseUrl => _dio.options.baseUrl;
+
   ApiServices(this._dio) {
-    _dio.options.baseUrl = 'https://api.example.com';
+    _dio.options.baseUrl = 'https://absence-management-backend.onrender.com';
     _dio.options.connectTimeout = const Duration(seconds: 5);
     _dio.options.receiveTimeout = const Duration(seconds: 3);
   }
@@ -22,6 +24,10 @@ class ApiServices {
 
   Future<Response> put(String path, {dynamic data}) async {
     return _dio.put(path, data: data);
+  }
+
+  Future<Response> patch(String path, {dynamic data}) async {
+    return _dio.patch(path, data: data);
   }
 
   Future<Response> delete(String path) async {

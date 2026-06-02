@@ -4,7 +4,8 @@ import 'package:abs/config/constants/app_assets.dart';
 import 'package:abs/config/theme/app_text_styles.dart';
 import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/features/notifications/screens/notifications_screen.dart';
-// import 'package:abs/features/notifications/screens/notifications_screen';
+import 'package:abs/features/notifications/cubit/notification_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -16,6 +17,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+
     return Row(
       children: [
         ClipOval(
@@ -42,16 +44,58 @@ class Header extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const NotificationsScreen(),
+        BlocBuilder<NotificationCubit, NotificationState>(
+          builder: (context, state) {
+            int unreadCount = 0;
+            if (state is NotificationLoaded) {
+              unreadCount = state.unreadCount;
+            }
+
+            final cubit = context.read<NotificationCubit>();
+
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider.value(
+                      value: cubit,
+                      child: const NotificationsScreen(),
+                    ),
+                  ),
+                );
+              },
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Icon(
+                    Icons.notifications_none_outlined,
+                    color: colors.primary,
+                  ),
+                  if (unreadCount > 0)
+                    Positioned(
+                      right: -2,
+                      top: -2,
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Text(
+                          unreadCount > 99 ? '99+' : '$unreadCount',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
               ),
             );
           },
-          child: Icon(Icons.notifications_none_outlined, color: colors.primary),
         ),
       ],
     );

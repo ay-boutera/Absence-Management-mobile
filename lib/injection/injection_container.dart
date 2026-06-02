@@ -10,6 +10,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../core/network/api_services.dart';
 import '../core/services/local_storage_service.dart';
 import '../core/services/secure_storage_service.dart';
+import 'package:abs/features/notifications/repository/notification_repository.dart';
+import 'package:abs/features/notifications/cubit/notification_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -24,6 +26,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => ApiServices(sl()));
   sl.registerLazySingleton(() => LocalStorageService(sl()));
   sl.registerLazySingleton(() => SecureStorageService(sl()));
+  sl.registerLazySingleton(() => NotificationRepository(sl(), sl()));
 
   // cubits
   sl.registerLazySingleton(() => ThemeCubit(sl()));
@@ -31,4 +34,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => LocaleCubit(sl()));
   sl.registerFactory(HomeCubit.new);
   sl.registerLazySingleton(MyAbsenceCubit.new);
+  sl.registerLazySingleton(() => NotificationCubit(sl()));
 }
+

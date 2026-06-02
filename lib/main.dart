@@ -5,6 +5,7 @@ import 'package:abs/l10n/locale_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:abs/features/notifications/cubit/notification_cubit.dart';
 import 'app.dart';
 
 void main() async {
@@ -20,6 +21,9 @@ void main() async {
         BlocProvider<AuthCubit>(create: (_) => sl<AuthCubit>()..initApp()),
         BlocProvider<LocaleCubit>(create: (_) => sl<LocaleCubit>()),
         BlocProvider<ThemeCubit>(create: (_) => sl<ThemeCubit>()),
+        BlocProvider<NotificationCubit>(
+          create: (_) => sl<NotificationCubit>()..loadNotifications(),
+        ),
       ],
       child: const MyApp(),
     ),

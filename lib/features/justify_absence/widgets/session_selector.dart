@@ -40,7 +40,7 @@ class SessionSelector extends StatelessWidget {
                 color: theme.colorScheme.primary,
                 size: 20,
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 16),
               Expanded(
                 child: Text(
                   // TODO: Change '.moduleName' to whatever field your AbsenceItem entity uses (e.g., absence.subject, absence.title)

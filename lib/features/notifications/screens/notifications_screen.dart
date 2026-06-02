@@ -1,124 +1,116 @@
-import 'package:abs/config/constants/enums.dart';
 import 'package:abs/config/theme/app_text_styles.dart';
-import 'package:abs/core/entities/notification_item.dart';
+import 'package:abs/features/notifications/cubit/notification_cubit.dart';
 import 'package:abs/features/notifications/widgets/notification_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NotificationsScreen extends StatelessWidget {
+class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({super.key});
 
-  // Mock static data populating the list view perfectly matches your reference image hierarchy
-  final List<NotificationItem> _mockNotifications = const [
-    NotificationItem(
-      type: NotificationType.attendanceRecorded,
-      titleKey: 'attendanceRecorded',
-      descriptionKey: 'attendanceRecordedDesc',
-      timeAgo: '2m ago',
-      hasUnreadDot: true,
-    ),
-    NotificationItem(
-      type: NotificationType.markedAbsent,
-      titleKey: 'markedAbsent',
-      descriptionKey: 'markedAbsentDesc',
-      timeAgo: '2m ago',
-      hasUnreadDot: true,
-    ),
-    NotificationItem(
-      type: NotificationType.justificationSubmitted,
-      titleKey: 'justificationSubmitted',
-      descriptionKey: 'justificationSubmittedDesc',
-      timeAgo: '2m ago',
-      hasUnreadDot: true,
-    ),
-    NotificationItem(
-      type: NotificationType.justificationApproved,
-      titleKey: 'justificationApproved',
-      descriptionKey: 'justificationApprovedDesc',
-      timeAgo: '2m ago',
-    ),
-    NotificationItem(
-      type: NotificationType.justificationRejected,
-      titleKey: 'justificationRejected',
-      descriptionKey: 'justificationRejectedDesc',
-      timeAgo: '2m ago',
-    ),
-    NotificationItem(
-      type: NotificationType.classCancelled,
-      titleKey: 'classCancelled',
-      descriptionKey: 'classCancelledDesc',
-      timeAgo: '2m ago',
-    ),
-    NotificationItem(
-      type: NotificationType.scheduleUpdated,
-      titleKey: 'scheduleUpdated',
-      descriptionKey: 'scheduleUpdatedDesc',
-      timeAgo: '2m ago',
-    ),
-  ];
+  @override
+  State<NotificationsScreen> createState() => _NotificationsScreenState();
+}
+
+class _NotificationsScreenState extends State<NotificationsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // The cubit is already running (shared via BlocProvider.value from Header).
+    // We only need to mark all as read once the screen opens.
+    // We defer until after the first frame so the context is fully ready.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        context.read<NotificationCubit>().markAllAsRead();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // final localizations = AppLocalizations.of(context)!;
-    final colorsheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorsheme.surface, // Crisp off-white background canvas
+      backgroundColor: colorScheme.surface,
       body: Column(
         children: [
-          // Custom Header Container Block
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(
-              top: 64,
-              left: 24,
-              right: 24,
-              bottom: 28,
-            ),
-            decoration: BoxDecoration(
-              color: colorsheme
-                  .primary, // Matches global setup or choice dark navy blue color block
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(4),
-                bottomRight: Radius.circular(4),
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Notifications", // Update to localizations.notificationsScreenTitle later
-                  style: AppTextStyles.heading1.copyWith(
-                    color: colorsheme.onSurface,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  "Check your notifications", // Update to localizations.notificationsScreenSubtitle later
-                  style: AppTextStyles.body1.copyWith(
-                    color: Colors.white.withAlpha(200),
-                  ),
-                ),
-              ],
+          _buildHeader(colorScheme),
+          Expanded(
+            child: BlocBuilder<NotificationCubit, NotificationState>(
+              builder: (context, state) {
+                if (state is NotificationLoading ||
+                    state is NotificationInitial) {
+                  // NotificationInitial should never appear here because the
+                  // cubit is already loaded, but guard it just in case.
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                if (state is NotificationError) {
+                  return Center(
+                    child: Text(
+                      state.message,
+                      style: TextStyle(color: colorScheme.error),
+                    ),
+                  );
+                }
+
+                if (state is NotificationLoaded) {
+                  if (state.notifications.isEmpty) {
+                    return Center(
+                      child: Text(
+                        "No notifications",
+                        style: AppTextStyles.body1.copyWith(color: Colors.grey),
+                      ),
+                    );
+                  }
+
+                  return ListView.builder(
+                    padding: const EdgeInsets.only(top: 12, bottom: 24),
+                    itemCount: state.notifications.length,
+                    itemBuilder: (context, index) {
+                      final notification = state.notifications[index];
+                      return NotificationCard(
+                        item: notification,
+                        onPrimaryActionPressed: () {},
+                        onSecondaryActionPressed: () {},
+                      );
+                    },
+                  );
+                }
+
+                return const SizedBox.shrink();
+              },
             ),
           ),
+        ],
+      ),
+    );
+  }
 
-          // Scrollassssble Dynamic Notifications Stream List
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.only(top: 12, bottom: 24),
-              itemCount: _mockNotifications.length,
-              itemBuilder: (context, index) {
-                final notification = _mockNotifications[index];
-                return NotificationCard(
-                  item: notification,
-                  onPrimaryActionPressed: () {
-                    // Logic linked here later
-                  },
-                  onSecondaryActionPressed: () {
-                    // Logic linked here later
-                  },
-                );
-              },
+  Widget _buildHeader(ColorScheme colorScheme) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.only(top: 64, left: 24, right: 24, bottom: 28),
+      decoration: BoxDecoration(
+        color: colorScheme.primary,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(4),
+          bottomRight: Radius.circular(4),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Notifications",
+            style: AppTextStyles.heading1.copyWith(
+              color: colorScheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            "Check your notifications",
+            style: AppTextStyles.body1.copyWith(
+              color: Colors.white.withAlpha(200),
             ),
           ),
         ],
