@@ -1,4 +1,3 @@
-import 'package:abs/config/router/app_routes.dart';
 import 'package:abs/features/absences/widgets/clock_illustration.dart';
 import 'package:flutter/material.dart';
 
@@ -41,20 +40,6 @@ class CheckAbsencesCard extends StatelessWidget {
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: theme.colorScheme.primary,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.myAbsence);
-                  },
-                  child: Text(
-                    actionLabel,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.primary,
-                      decoration: TextDecoration.underline,
-                      decorationColor: theme.colorScheme.primary,
-                    ),
                   ),
                 ),
               ],

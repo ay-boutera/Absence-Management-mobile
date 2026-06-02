@@ -55,7 +55,7 @@ class _ModulesAttendanceScreenState extends State<ModulesAttendanceScreen> {
                           OverallScoreCard(
                             label: l10n.overallScoreLabel,
                             group: l10n.overallScoreGroup,
-                            percentage: 85,
+                            percentage: state.attendanceRate.round(),
                           ),
                           const SizedBox(height: 12),
                           SemesterTab(

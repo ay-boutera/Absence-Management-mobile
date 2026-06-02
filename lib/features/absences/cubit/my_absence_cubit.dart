@@ -1,3 +1,4 @@
+import 'package:abs/config/constants/enums.dart';
 import 'package:abs/core/entities/Absence_entity.dart';
 import 'package:abs/core/entities/justification.dart';
 import 'package:abs/core/entities/module_stats.dart';
@@ -14,6 +15,10 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
   MyAbsenceCubit() : super(MyAbsenceInitial());
 
   List<AbsenceItem> _allAbsences = [];
+  List<ModuleStats> _modulesStats = [];
+  double _attendanceRate = 0.0;
+
+  double get attendanceRate => _attendanceRate;
 
   Future<void> getAbsences() async {
     emit(MyAbsenceLoading());
@@ -47,19 +52,19 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
             .map((json) => AbsenceItem.fromJson(json))
             .toList();
 
-        final modulesStats = (data['module_attendance'] as List)
+        _modulesStats = (data['module_attendance'] as List)
             .map((json) => ModuleStats.fromJson(json))
             .toList();
 
-        print(modulesStats.length);
+        print(_modulesStats.length);
 
-        final attendanceRate = data['attendance_rate'] as double;
+        _attendanceRate = data['attendance_rate'] as double;
 
         emit(
           MyAbsenceSuccess(
             absences: _allAbsences,
-            modulesStats: modulesStats,
-            attendanceRate: attendanceRate,
+            modulesStats: _modulesStats,
+            attendanceRate: _attendanceRate,
           ),
         );
       } else {
@@ -75,6 +80,23 @@ class MyAbsenceCubit extends Cubit<MyAbsenceState> {
       print('Failed to load absences: $e');
       emit(MyAbsenceError(message: e.toString()));
     }
+  }
+
+  void filterAbsencesByState(AbsenceStatus? status) {
+    if (state is! MyAbsenceSuccess) return;
+
+    final filteredAbsences = status == null
+        ? _allAbsences
+        : _allAbsences
+              .where((absence) => absence.justificationStatus == status)
+              .toList();
+    emit(
+      MyAbsenceSuccess(
+        absences: filteredAbsences,
+        modulesStats: _modulesStats,
+        attendanceRate: _attendanceRate,
+      ),
+    );
   }
 
   Future<void> submitJustification(Justification justification) async {

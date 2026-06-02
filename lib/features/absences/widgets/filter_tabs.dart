@@ -1,4 +1,7 @@
+import 'package:abs/config/constants/enums.dart';
+import 'package:abs/features/absences/cubit/my_absence_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FilterTabs extends StatefulWidget {
   final List<String> labels;
@@ -23,16 +26,28 @@ class _FilterTabsState extends State<FilterTabs> {
         color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Row(
-        children: List.generate(
-          widget.labels.length,
-          (index) => Expanded(
-            child: GestureDetector(
-              onTap: () => setState(() => selectedIndex = index),
+      // 1. Wrap the Row in a SingleChildScrollView
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+            widget.labels.length,
+            (index) => GestureDetector(
+              onTap: () {
+                setState(() => selectedIndex = index);
+                // Tip: Use 'index' directly here instead of 'selectedIndex' to avoid timing bugs
+                context.read<MyAbsenceCubit>().filterAbsencesByState(
+                  index == 0 ? null : AbsenceStatus.values[index - 1],
+                );
+              },
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                margin: const EdgeInsets.symmetric(horizontal: 2),
+                // 2. Added horizontal padding so the words have breathing room when scrolling
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 16,
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(
                   color: selectedIndex == index
                       ? theme.colorScheme.primary

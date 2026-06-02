@@ -122,5 +122,6 @@
   "pending":"Pending",
   "justified":"Justified",
   "familyEmergency":"Family Emergency",
-  "other":"Other"
+  "other":"Other",
+  "filterJustified": "Justified"
 }

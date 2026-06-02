@@ -32,6 +32,7 @@ class MyAbsenceScreen extends StatelessWidget {
                 l10n.filterPending,
                 l10n.filterApproved,
                 l10n.filterRejected,
+                l10n.filterJustified,
               ],
             ),
             BlocBuilder<MyAbsenceCubit, MyAbsenceState>(

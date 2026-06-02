@@ -121,5 +121,6 @@
   "pending":"قيد الانتظار",
   "justified":"مبرر",
   "familyEmergency":"ظرف عائلي",
-  "other":"أخرى"
+  "other":"أخرى",
+  "filterJustified": "مبرر"
 }

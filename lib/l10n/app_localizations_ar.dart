@@ -376,4 +376,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get other => 'أخرى';
+
+  @override
+  String get filterJustified => 'مبرر';
 }

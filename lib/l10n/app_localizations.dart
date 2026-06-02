@@ -799,6 +799,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other'**
   String get other;
+
+  /// No description provided for @filterJustified.
+  ///
+  /// In en, this message translates to:
+  /// **'Justified'**
+  String get filterJustified;
 }
 
 class _AppLocalizationsDelegate
