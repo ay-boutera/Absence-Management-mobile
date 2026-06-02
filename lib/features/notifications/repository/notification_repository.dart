@@ -50,7 +50,10 @@ class NotificationRepository {
     _controller.close();
   }
 
-  Future<List<NotificationItem>> getNotifications({int page = 1, int pageSize = 20}) async {
+  Future<List<NotificationItem>> getNotifications({
+    int page = 1,
+    int pageSize = 20,
+  }) async {
     try {
       final response = await _apiServices.get(
         ApiEndpoints.notifications,
@@ -58,7 +61,11 @@ class NotificationRepository {
       );
       if (response.data != null && response.data['data'] != null) {
         final List data = response.data['data'];
-        return data.map((json) => NotificationItem.fromJson(json as Map<String, dynamic>)).toList();
+        return data
+            .map(
+              (json) => NotificationItem.fromJson(json as Map<String, dynamic>),
+            )
+            .toList();
       }
       return [];
     } catch (_) {
@@ -106,8 +113,9 @@ class NotificationRepository {
     final baseUrl = _apiServices.baseUrl
         .replaceFirst('https://', 'wss://')
         .replaceFirst('http://', 'ws://');
-        
-    final wsUrl = '$baseUrl/api/v1/ws${ApiEndpoints.notifications}?token=${accessToken ?? ''}';
+
+    final wsUrl =
+        '$baseUrl/api/v1/ws${ApiEndpoints.notifications}?token=${accessToken ?? ''}';
     final uri = Uri.parse(wsUrl);
 
     // WebSocketChannel.connect() itself won't throw — errors surface on .stream.
@@ -146,9 +154,11 @@ class NotificationRepository {
   }
 
   void _handleMessage(dynamic message) {
+    print('📨 RAW WS MESSAGE: $message');
     if (_controller.isClosed) return;
     try {
       final decoded = jsonDecode(message as String);
+      print('📨 DECODED: $decoded');
       final List<NotificationItem> items;
 
       if (decoded is Map<String, dynamic> && decoded.containsKey('data')) {
@@ -166,7 +176,8 @@ class NotificationRepository {
       }
 
       _controller.add(items);
-    } catch (_) {
+    } catch (e) {
+      print('❌ WS PARSE ERROR: $e');
       // Malformed message — skip silently, don't crash
     }
   }

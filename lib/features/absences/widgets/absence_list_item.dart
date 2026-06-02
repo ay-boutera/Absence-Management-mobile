@@ -111,7 +111,7 @@ class AbsenceListItem extends StatelessWidget {
       case AbsenceStatus.pending:
         iconData = Icons.schedule_outlined;
         break;
-      case AbsenceStatus.justified:
+      case AbsenceStatus.approved:
         iconData = Icons.check_circle_outline;
         break;
     }

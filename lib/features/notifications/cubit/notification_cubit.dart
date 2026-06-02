@@ -40,14 +40,20 @@ class NotificationCubit extends Cubit<NotificationState> {
     await _subscription?.cancel();
 
     try {
-      // 1. Fetch initial inbox from REST API
-      final initialItems = await _repository.getNotifications(page: 1, pageSize: 50);
+      final initialItems = await _repository.getNotifications(
+        page: 1,
+        pageSize: 50,
+      );
       if (isClosed) return;
-      
-      final unreadCount = initialItems.where((i) => !i.isRead).length;
-      emit(NotificationLoaded(notifications: initialItems, unreadCount: unreadCount));
 
-      // 2. Subscribe to WebSocket for real-time push updates
+      final unreadCount = initialItems.where((i) => !i.isRead).length;
+      emit(
+        NotificationLoaded(
+          notifications: initialItems,
+          unreadCount: unreadCount,
+        ),
+      );
+
       _subscription = _repository.watchNotifications().listen(
         (incomingItems) {
           print('🔔 [Cubit] received ${incomingItems.length} items from WS');
@@ -59,9 +65,6 @@ class NotificationCubit extends Cubit<NotificationState> {
                 )
               : [];
 
-          // Merge strategy:
-          //   • single incoming item  → upsert into existing list
-          //   • multiple / list empty → replace entirely
           if (incomingItems.length == 1 && currentItems.isNotEmpty) {
             final newItem = incomingItems.first;
             final index = currentItems.indexWhere((i) => i.id == newItem.id);
@@ -105,9 +108,7 @@ class NotificationCubit extends Cubit<NotificationState> {
           ),
         );
       }
-    } catch (_) {
-      // Background refresh — ignore failures silently
-    }
+    } catch (_) {}
   }
 
   Future<void> markAllAsRead() async {

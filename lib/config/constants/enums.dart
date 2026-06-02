@@ -20,7 +20,7 @@ enum AbsenceStatus {
   unjustified,
   rejected,
   pending,
-  justified;
+  approved;
 
   String toDisplayName(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -32,7 +32,7 @@ enum AbsenceStatus {
         return l10n.rejected;
       case AbsenceStatus.pending:
         return l10n.pending;
-      case AbsenceStatus.justified:
+      case AbsenceStatus.approved:
         return l10n.justified;
     }
   }

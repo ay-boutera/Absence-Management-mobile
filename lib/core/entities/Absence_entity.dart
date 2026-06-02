@@ -36,7 +36,7 @@ class AbsenceEntity {
         return theme.colorScheme.error;
       case AbsenceStatus.pending:
         return Colors.amber[700]!;
-      case AbsenceStatus.justified:
+      case AbsenceStatus.approved:
         return Colors.green[700]!;
       case AbsenceStatus.unjustified:
         return theme.colorScheme.onSurface;
@@ -51,8 +51,8 @@ class AbsenceEntity {
         return 'Rejected';
       case AbsenceStatus.pending:
         return 'Pending';
-      case AbsenceStatus.justified:
-        return 'Justified';
+      case AbsenceStatus.approved:
+        return 'Approved';
     }
   }
 
