@@ -3,6 +3,8 @@ import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/core/helpers/get_year_helper.dart';
 import 'package:abs/features/auth/cubit/auth_cubit.dart';
 import 'package:abs/features/change_password.dart/screens/change_password_screen.dart';
+import 'package:abs/features/home/cubit/home_cubit.dart';
+import 'package:abs/features/make_up_sessions/screens/all_sessions_screen.dart';
 import 'package:abs/features/profile/helpers/change_language_bottom_sheet.dart';
 import 'package:abs/features/profile/helpers/change_theme_bottom_sheet.dart';
 import 'package:abs/features/profile/screens/personel_info.dart';
@@ -104,16 +106,22 @@ class ProfileScreen extends StatelessWidget {
                             icon: Icons.group_add,
                             title: l10n.attendanceWithAnotherGroup,
                             onTap: () {
+                              final existingHomeCubit = context
+                                  .read<HomeCubit>();
+
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => ChangePasswordScreen(),
+                                  builder: (context) => BlocProvider.value(
+                                    value: existingHomeCubit,
+                                    child: const AllSessionsScreen(),
+                                  ),
                                 ),
                               );
                             },
                             hasChevron: true,
                           ),
-  
+
                           CustomDivider(),
                           ListItem(
                             icon: Icons.lock_outline,

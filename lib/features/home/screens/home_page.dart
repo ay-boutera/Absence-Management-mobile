@@ -2,28 +2,14 @@ import 'package:abs/core/entities/user_entity.dart';
 import 'package:abs/features/home/cubit/home_cubit.dart';
 import 'package:abs/features/home/widgets/bottom_nav.dart';
 import 'package:abs/features/home/widgets/class_card.dart';
+import 'package:abs/features/home/widgets/costum_badge.dart';
 import 'package:abs/features/home/widgets/date_selector.dart';
 import 'package:abs/features/home/widgets/empty_class_card.dart';
 import 'package:abs/features/home/widgets/header.dart';
 import 'package:abs/features/home/widgets/timetable_card.dart';
-import 'package:abs/injection/injection_container.dart';
 import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-class HomeProvider extends StatelessWidget {
-  const HomeProvider({super.key, required this.user});
-
-  final UserEntity user;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => sl<HomeCubit>()..fetchMySessions(),
-      child: HomePage(user: user),
-    );
-  }
-}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.user});
@@ -57,7 +43,7 @@ class HomePage extends StatelessWidget {
               builder: (context, state) {
                 if (state is HomeLoadedSuccess) {
                   if (state.sessions.isEmpty) {
-                    return EmptyClassCard();
+                    return EmptyClassCard(isBorder: true);
                   }
                   return Column(
                     children: [
@@ -68,7 +54,10 @@ class HomePage extends StatelessWidget {
                             style: theme.textTheme.titleLarge,
                           ),
                           const SizedBox(width: 8),
-                          _badge(state.sessions.length, context),
+                          CostumBadge(
+                            count: state.sessions.length,
+                            context: context,
+                          ),
                         ],
                       ),
 
@@ -108,25 +97,6 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Widget _badge(int count, BuildContext context) {
-    final theme = Theme.of(context);
-    return count == 0
-        ? SizedBox.shrink()
-        : Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: BoxDecoration(
-              color: theme.colorScheme.primary,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              count.toString(),
-              style: theme.textTheme.titleMedium?.copyWith(
-                color: theme.colorScheme.onPrimary,
-              ),
-            ),
-          );
   }
 }
 

@@ -14,6 +14,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<SessionEntity> _sessions = [];
 
+  List<SessionEntity> get allSessions => _sessions;
+
   Future<void> fetchMySessions() async {
     if (isClosed) return;
     emit(HomeLoading());

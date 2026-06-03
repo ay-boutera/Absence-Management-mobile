@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class EmptyClassCard extends StatelessWidget {
-  const EmptyClassCard({super.key});
+  const EmptyClassCard({super.key, required this.isBorder});
+
+  final bool isBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +17,12 @@ class EmptyClassCard extends StatelessWidget {
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          width: 1,
-          color: theme.colorScheme.primary.withValues(alpha: 0.5),
-        ),
+        border: isBorder
+            ? Border.all(
+                width: 1,
+                color: theme.colorScheme.primary.withValues(alpha: 0.5),
+              )
+            : null,
       ),
       child: Column(
         children: [

@@ -65,7 +65,7 @@ class _BottomNavBarView extends StatelessWidget {
 
     // Exactly 4 screens for exactly 4 nav items
     final List<Widget> screens = [
-      HomeProvider(user: userEntity), // index 0
+      HomePage(user: userEntity),
       const AbsencesProvider(child: MyAbsenceScreen()), // index 1
       const AbsencesProvider(child: ModulesAttendanceScreen()), // index 2
       ProfileScreen(user: userEntity), // index 3
