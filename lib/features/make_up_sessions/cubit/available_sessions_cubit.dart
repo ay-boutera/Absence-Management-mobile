@@ -15,6 +15,8 @@ class AvailableSessionsCubit extends Cubit<AvailableSessionsState> {
   Future<void> getAvailableSessions(String moduleId) async {
     emit(AvailableSessionsLoading());
 
+    print(moduleId);
+
     try {
       // 2. Retrieve the JWT from secure storage
       const storage = FlutterSecureStorage();

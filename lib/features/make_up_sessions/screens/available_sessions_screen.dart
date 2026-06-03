@@ -12,13 +12,14 @@ class AvailableSessionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => AvailableSessionsCubit()..getAvailableSessions(moduleId),
-      child: const AvailableSessionsView(),
+      child: AvailableSessionsView(moduleId: moduleId),
     );
   }
 }
 
 class AvailableSessionsView extends StatelessWidget {
-  const AvailableSessionsView({super.key});
+  const AvailableSessionsView({super.key, required this.moduleId});
+  final String moduleId;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class AvailableSessionsView extends StatelessWidget {
               itemBuilder: (context, index) {
                 final session = state.sessions[index];
                 return ModuleCard(
-                  id: session.sessionId,
+                  moduleId: moduleId,
                   title: session.moduleName,
                   teacher: session.teacherName,
                   room: session.room,

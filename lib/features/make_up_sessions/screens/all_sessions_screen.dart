@@ -42,7 +42,7 @@ class AllSessionsScreen extends StatelessWidget {
 
                       ...(allModules.map((session) {
                         return ModuleCard(
-                          id: session.id,
+                          moduleId: session.moduleId,
                           title: session.subject,
                           teacher: session.teachers.isNotEmpty
                               ? '${session.teachers.first.firstName.toTitleCase()} ${session.teachers.first.lastName.toTitleCase()}'

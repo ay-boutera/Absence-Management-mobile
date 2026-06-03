@@ -3,7 +3,7 @@ import 'package:abs/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class ModuleCard extends StatelessWidget {
-  final String id;
+  final String moduleId;
   final String title;
   final String teacher;
   final String room;
@@ -11,7 +11,7 @@ class ModuleCard extends StatelessWidget {
 
   const ModuleCard({
     super.key,
-    required this.id,
+    required this.moduleId,
     required this.title,
     required this.teacher,
     required this.room,
@@ -102,7 +102,7 @@ class ModuleCard extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                AvailableSessionsScreen(moduleId: id),
+                                AvailableSessionsScreen(moduleId: moduleId),
                           ),
                         );
                       },

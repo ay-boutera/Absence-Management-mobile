@@ -53,6 +53,8 @@ class SessionEntity extends Equatable {
   ];
 
   factory SessionEntity.fromJson(Map<String, dynamic> json) {
+    // ignore: prefer_interpolation_to_compose_strings
+    print("module id:" + json['module_id']);
     return SessionEntity(
       id: json['id'] ?? 0,
       moduleId: json['module_id'] ?? "",
