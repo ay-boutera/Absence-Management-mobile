@@ -967,6 +967,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Attend with another group'**
   String get attendanceWithAnotherGroup;
+
+  /// No description provided for @seeAvailableSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'See available sessions'**
+  String get seeAvailableSessions;
 }
 
 class _AppLocalizationsDelegate

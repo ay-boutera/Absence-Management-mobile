@@ -149,5 +149,6 @@
   "scanQrCodeTitle": "مسح رمز QR",
   "scanQrCodeSubtitle": "وجّه الكاميرا نحو رمز QR لمسحه",
   "noAbsences": "لا توجد غيابات",
-  "attendanceWithAnotherGroup":"الحضور في مجموعة أخرى"
+  "attendanceWithAnotherGroup":"الحضور في مجموعة أخرى",
+  "seeAvailableSessions":"عرض الحصص المتاحة"
 }

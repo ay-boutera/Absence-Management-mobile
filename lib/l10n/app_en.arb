@@ -150,5 +150,6 @@
   "scanQrCodeTitle": "Scan QR Code",
   "scanQrCodeSubtitle": "Point your camera at a QR code to scan",
   "noAbsences": "No absences",
-  "attendanceWithAnotherGroup":"Attend with another group"
+  "attendanceWithAnotherGroup":"Attend with another group",
+  "seeAvailableSessions": "See available sessions" 
 } 

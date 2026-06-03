@@ -464,4 +464,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get attendanceWithAnotherGroup => 'Attend with another group';
+
+  @override
+  String get seeAvailableSessions => 'See available sessions';
 }

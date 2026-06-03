@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 
 class SessionEntity extends Equatable {
   final String id;
+  final String moduleId;
   final String day;
   final String timeStart;
   final String timeEnd;
@@ -18,6 +19,7 @@ class SessionEntity extends Equatable {
 
   const SessionEntity({
     required this.id,
+    required this.moduleId,
     required this.day,
     required this.timeStart,
     required this.timeEnd,
@@ -35,6 +37,7 @@ class SessionEntity extends Equatable {
   @override
   List<Object?> get props => [
     id,
+    moduleId,
     day,
     timeStart,
     timeEnd,
@@ -52,6 +55,7 @@ class SessionEntity extends Equatable {
   factory SessionEntity.fromJson(Map<String, dynamic> json) {
     return SessionEntity(
       id: json['id'] ?? 0,
+      moduleId: json['module_id'] ?? "",
       day: json['day'] ?? "",
       timeStart: json['time_start'] ?? "",
       timeEnd: json['time_end'] ?? "",
